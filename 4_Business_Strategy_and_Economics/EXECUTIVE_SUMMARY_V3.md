@@ -59,11 +59,11 @@ status: "Approved"
 
 ## 4. Market and Go-To-Market
 
-* **Target Customer:** SMB owners, freelancers, or founders needing specific contracts (NDAs, Service Agreements) *now*.
+* **Target Customer:** SMB owners, freelancers, or founders needing to perform specific judicial or procedural actions (e.g., Lawsuit Responses, Initial Lawsuits, Appeals) *now*.
 * **Primary Channel:** SEO / Direct Intent Search.
 * **Secondary Channel:** Referral from ecosystem.
 * **Purchase Friction:** Trust (overcome by "no login" and low price).
-* **Purchase Trigger:** Immediate urgency ("I need an NDA for a meeting in 1 hour").
+* **Purchase Trigger:** Immediate urgency ("I need to respond to this lawsuit in 24 hours").
 
 ---
 
@@ -84,7 +84,7 @@ status: "Approved"
 * **LLM Ops (Input/Output Tokens):** Approx $0.05 - $0.50 per run depending on length.
 * **Compute (Workers/Durable Objects):** Negligible (<$0.01).
 
-### Scenario A: The "Minimum Viable" (Simple NDA)
+### Scenario A: The "Minimum Viable" (Simple Procedural Brief, e.g., Request Measure or Withdraw)
 * **Input:** 1 Page / ~500 tokens.
 * **Revenue:** **$6.00** ($5 base + $1 page)
 * **COGS:**
@@ -93,7 +93,7 @@ status: "Approved"
     * **Total Variable Cost:** $0.52
 * **Gross Margin:** **$5.48 (91.3%)**
 
-### Scenario B: The "Average Case" (Service Agreement)
+### Scenario B: The "Average Case" (Lawsuit Response / Opposition)
 * **Input:** 15 Pages / ~7,500 tokens.
 * **Revenue:** **$20.00** ($5 base + $15 pages)
 * **COGS:**
@@ -102,7 +102,7 @@ status: "Approved"
     * **Total Variable Cost:** $1.13
 * **Gross Margin:** **$18.87 (94.3%)**
 
-### Scenario C: The "Heavy Duty" (Complex Incorporations)
+### Scenario C: The "Heavy Duty" (Initial Lawsuit or Complex Appeal)
 * **Input:** 50 Pages / ~25,000 tokens.
 * **Revenue:** **$55.00** ($5 base + $50 pages)
 * **COGS:**

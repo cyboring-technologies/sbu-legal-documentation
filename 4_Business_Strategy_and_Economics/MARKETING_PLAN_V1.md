@@ -209,18 +209,21 @@ A new landing page is created only when:
 
 # 5. Service Expansion Strategy
 
-## Correct Rhythm
+## Horizontal Independence (No Sequences)
 
-- Service 1 (Lawsuit Response): Month 0 (validation).
-- Service 2: Month 3 (when S1 sustains structure).
-- Service 3: Month 6 (when S1 and S2 are profitable).
+The system supports 8 totally independent and parallel procedural transformations (Initiate Process, Answer/Oppose, Appeal, Request Measure, Modify, Execute, Inform, Withdraw). 
 
-Never launch multiple core services in parallel.
+A user does **not** proceed through these sequentially. A lawyer may arrive solely to buy an Appeal draft, while another arrives solely to initiate a lawsuit. Each service is an isolated, one-shot transaction matching a specific, immediate intent.
 
-## Portfolio Rule
+## Advertising Validation Rhythm
 
-Core services → validated sequentially with Ads.  
-Satellite services → can be added earlier if they monetize existing traffic.
+While the 8 services exist independently in the Engine, **Marketing Ad validation** must still be focused to conserve budget:
+
+- **Ad Target 1 (e.g., Lawsuit Response):** Validate intent and conversion first.
+- **Ad Target 2 (e.g., Appeals):** Launch ads only when Target 1 is profitable.
+- **Ad Target 3 (e.g., Initial Lawsuits):** Launch ads only when 1 and 2 sustain structure.
+
+Never launch Google Ads for all execution modes in parallel during the validation phase. Validate one intent channel at a time.
 
 ---
 

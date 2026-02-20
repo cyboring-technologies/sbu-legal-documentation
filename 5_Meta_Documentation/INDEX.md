@@ -67,6 +67,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **MARKETING_PLAN_V1.md**
     Outlines the go-to-market strategy, focusing exclusively on Google Search Ads to capture high-intent traffic ("lawsuit response"). It explicitly bans social media ads and brand-building campaigns in the validation phase.
 
+*   **sbu-legal-landing/src/messages/es.json**
+    Contains all the copy of the landing page in Spanish (homepage, services, prices, about us, contact, FAQs, etc.). This acts as the definitive source for the website's marketing material and messaging.
+
 ## 5. Meta Documentation
 *Documentation regarding the directory structure itself.*
 
