@@ -64,8 +64,14 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **ECONOMIC_LAUNCH_VALIDATION_REPORT.md**
     Analyzes the unit economics for the launch. It confirms that variable costs (Stripe fees + LLM tokens) are negligible relative to the ticket price ($6-$55), yielding gross margins above 90%.
 
-*   **MARKETING_PLAN_V1.md**
-    Outlines the go-to-market strategy, focusing exclusively on Google Search Ads to capture high-intent traffic ("lawsuit response"). It explicitly bans social media ads and brand-building campaigns in the validation phase.
+*   **MARKETING_PLAN_V3.md**
+    Outlines the structural SEO variant of the marketing plan. It focuses on replacing paid acquisition with high-intent procedural queries, utilizing a capitalized organic internal production base for delayed but autonomous returns.
+
+*   **MARKETING_PARAMETRIC_MODEL.md**
+    Defines the parametric marketing model and mathematical assumptions for SBU-Legal validation. It acts as an exploratory financial framework without establishing hardcoded limits, governing variables like SEO production, segmentation, and pricing.
+
+*   **MARKETING_EXECUTION_FRAMEWORK_V1.md**
+    Defines the operational unit economics, KPI framework, and test matrix required for commercial validation under the SBU-Legal constraint.
 
 *   **sbu-legal-landing/src/messages/es.json**
     Contains all the copy of the landing page in Spanish (homepage, services, prices, about us, contact, FAQs, etc.). This acts as the definitive source for the website's marketing material and messaging.
