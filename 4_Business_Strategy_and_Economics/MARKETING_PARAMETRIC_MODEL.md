@@ -116,6 +116,9 @@ status: "Approved"
 *   **POST_CRO_CR**: Target conversion rate after deep semantic structuring, friction reduction, and trust building.
     *   *Financial Impact:* The primary multiplier for existing traffic. A marginal increase radically transforms MRR without added acquisition cost.
     *   *Suggested Range:* 3% – 7%.
+    *   *Calibration Note (Early Stage Domains):*
+        For new domains without established authority or historical brand trust, conservative modeling should assume POST_CRO_CR in the 3.2%–3.5% range.
+        Values ≥ 4.5% should be treated as upside scenarios dependent on high-intent keyword capture and friction-minimized UX.
 *   **CRO_START_MONTH**: The timeline for executing primary structural CRO interventions.
     *   *Financial Impact:* Determines when the compounding effects of increased CR begin to affect revenue.
     *   *Suggested Range:* Month 2 – Month 4.
