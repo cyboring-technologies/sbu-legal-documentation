@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-02-19"
+last_updated: "2026-02-21"
 status: "Approved"
 ---
 
@@ -52,6 +52,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **UX_E2E_CONTRACT.md**
     Governs the end-to-end user experience to enforce the "One-Shot" mental model. It prohibits UX patterns like "save for later," "create account," or "dashboard," ensuring the user perceives the action as a single, irreversible event.
 
+*   **ANTI_PAGES_TEMPLATE_CONTRACT_V1.md**
+    Standard document that defines the structural, semantic, and technical architecture of AntiPages.
+
 ## 4. Business Strategy, Marketing & Economics
 *Documents defining the rules out in the market, launch numbers, and business propositions.*
 
@@ -72,6 +75,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **MARKETING_EXECUTION_FRAMEWORK_V1.md**
     Defines the operational unit economics, KPI framework, and test matrix required for commercial validation under the SBU-Legal constraint.
+
+*   **ANTI_PAGES_MASTER_INVENTORY_V1.md**
+    Structural document that maps the complete annual inventory of parametric landing pages (AntiPages). Establishes service-jurisdiction variants, tier prioritization, and serves as the source for `antipages.json`.
 
 *   **sbu-legal-landing/src/messages/es.json**
     Contains all the copy of the landing page in Spanish (homepage, services, prices, about us, contact, FAQs, etc.). This acts as the definitive source for the website's marketing material and messaging.
