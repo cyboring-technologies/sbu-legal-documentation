@@ -61,7 +61,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **BUSINESS_AXIOMS.md**
     Establishes the non-negotiable business rules. It defines the product as a single irreversible execution (not a service or subscription) and prohibits any UX features that imply accounts, saving, or recurring use.
 
-*   **EXECUTIVE_SUMMARY_V1.md**    
+*   **EXECUTIVE_SUMMARY_V3_SBU_LEGAL.md**
     An operational executive summary of the business unit. It details the value proposition (immediate document generation), target audience (SMBs), and the "incineration" privacy model as a key selling point.
 
 *   **ECONOMIC_LAUNCH_VALIDATION_REPORT.md**
