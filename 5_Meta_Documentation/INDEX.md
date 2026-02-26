@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-02-21"
+last_updated: "2026-02-25"
 status: "Approved"
 ---
 
@@ -25,8 +25,8 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
 
-*   **METADATA_EXTRACTION_ARCHITECTURE_V2.md**
-    Describes the system for extracting structural data (dates, amounts, jurisprudence) from uploaded documents. It emphasizes that this process is deterministic, uses regex/low-cost LLMs, and strictly avoids legal judgment or logic gating.
+*   **METADATA_EXTRACTION_ARCHITECTURE_V2.md** *(Deprecated — 2026-02-25)*
+    Archived. Described the regex-based structural extraction pipeline (`Stage3Extractor.js`, `/extract`, `/review_metadata`, SHA-256 freeze, `<TRUSTED_CONTEXT>` injection). Fully removed during the Sovereign LLM migration (2026-02-25). The LLM is now the sole interpreter of source content. Retained for historical reference only.
 
 *   **PROMPT_SYSTEM_STATE_V2.md**
     Documents the prompt engineering architecture. It uses a "Strict Envelope" model to segregate system instructions from user content to ensure structural integrity and prevent prompt injection or "bleed-through."

@@ -3,9 +3,12 @@ id: "METADATA_EXTRACTION_ARCHITECTURE_V2"
 title: "Metadata Extraction Architecture"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-02-19"
-status: "Approved"
+last_updated: "2026-02-25"
+status: "Deprecated"
 ---
+
+> **⚠️ DEPRECATED — 2026-02-25**
+> This document described the regex-based extraction pipeline (`Stage3Extractor.js`, `/extract`, `/store_extraction`, `/review_metadata`, SHA-256 metadata freeze, `<TRUSTED_CONTEXT>` injection). This pipeline was fully removed during the Sovereign LLM migration. The LLM is now the sole interpreter of source content. This document is retained for historical reference only and must not be used as a design reference.
 
 # Metadata Extraction Architecture
 

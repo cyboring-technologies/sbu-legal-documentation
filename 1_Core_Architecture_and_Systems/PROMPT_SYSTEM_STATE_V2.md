@@ -57,7 +57,7 @@ The generated prompt is assembled into explicit structural blocks:
 
 -   SYSTEM_AUTHORITY
 -   STRUCTURAL_MANDATE
--   TRUSTED_CONTEXT
+-   FACTUAL_FIDELITY
 -   NEGATIVE_CONSTRAINTS
 -   UNTRUSTED_SOURCE
 
@@ -67,7 +67,6 @@ The envelope:
 
 -   Strongly reduces instruction/data collision.
 -   Maximally discourages bleed‑through from source text.
--   Separates metadata authority from raw input.
 -   Encapsulates untrusted user content.
 -   Prevents identity contamination.
 
@@ -193,7 +192,6 @@ Structural failure burns the session.
 
 -   Temperature: 0.0
 -   Fixed skeleton
--   Metadata injection frozen post-authority
 -   Single runtime
 -   Single engine
 
