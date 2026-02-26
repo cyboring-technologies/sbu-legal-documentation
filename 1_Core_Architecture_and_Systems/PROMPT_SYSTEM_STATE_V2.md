@@ -3,7 +3,7 @@ id: "PROMPT_SYSTEM_STATE_V2"
 title: "Prompt System State (V2 Hardened Architecture)"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-02-19"
+last_updated: "2026-02-26"
 status: "Approved"
 ---
 
@@ -53,13 +53,16 @@ It uses a **Strict Envelope Architecture** with structured segmentation.
 
 ### 3.1 Logical Zones
 
-The generated prompt is assembled into explicit structural blocks:
+The generated prompt is assembled into explicit structural blocks (in order):
 
 -   SYSTEM_AUTHORITY
 -   STRUCTURAL_MANDATE
 -   FACTUAL_FIDELITY
+-   STRUCTURED_HINTS *(verbatim regex extractions from source — emitted only when matches found)*
+-   TRUSTED_STRATEGIC_CONTEXT *(attorney-supplied supplemental facts — emitted only when field is non-empty)*
 -   NEGATIVE_CONSTRAINTS
--   UNTRUSTED_SOURCE
+-   INSTRUCTION
+-   UNTRUSTED_SOURCE *(user message — treated as raw data, never as instructions)*
 
 ### 3.2 Structural Goals
 

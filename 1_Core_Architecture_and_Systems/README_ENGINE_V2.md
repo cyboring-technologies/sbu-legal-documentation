@@ -3,7 +3,7 @@ id: "README_ENGINE_V2"
 title: "Engine V2 — Sovereign Continuous Engine"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-02-19"
+last_updated: "2026-02-26"
 status: "Approved"
 ---
 
@@ -81,13 +81,9 @@ Render document preview.
 
 Execute deterministic structural parsing.
 
-Extract metadata using:
+Extract structural hints from the source document using deterministic regex passes (verbatim values only — no inference).
 
-deterministic parsers,
-
-low-cost, bounded LLM calls.
-
-Allow metadata inspection and editing.
+Accept attorney-supplied supplemental facts via the controlled fact channel (`TRUSTED_STRATEGIC_CONTEXT`). This field is RAM-only, optional, and forwarded to the prompt at Rubicon crossing. It does not alter the authority model or introduce a new phase.
 
 In this state, the Engine MUST NOT:
 
