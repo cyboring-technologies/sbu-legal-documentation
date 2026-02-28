@@ -2,8 +2,8 @@
 id: "PROMPT_SYSTEM_STATE_V2"
 title: "Prompt System State (V2 Hardened Architecture)"
 type: "Core Architecture & Systems"
-version: "v2.0"
-last_updated: "2026-02-26"
+version: "v2.1"
+last_updated: "2026-02-28"
 status: "Approved"
 ---
 
@@ -72,6 +72,7 @@ The envelope:
 -   Maximally discourages bleed‑through from source text.
 -   Encapsulates untrusted user content.
 -   Prevents identity contamination.
+-   Actively prohibits factual fabrication and mandates explicit Rule-Fact-Inference-Conclusion structures via the `STRUCTURAL_MANDATE`.
 
 This does **not** guarantee perfect isolation. It provides high‑probability structural containment.
 
@@ -85,7 +86,7 @@ The CANONICAL_SKELETON remains the structural backbone of output generation.
 
 Sections are conceptually divided into:
 
--   Mandatory Critical
+-   Mandatory Critical (including `APPLICABLE_REGULATORY_FRAMEWORK` and `LOGICAL_RATIONALE`)
 -   Mandatory Standard
 -   Optional
 
@@ -124,7 +125,7 @@ The validator is intentionally minimal.
 
 It:
 
--   Detects structural collapse (Length < 200).
+-   Detects structural collapse using a parameterized conservative threshold (`MIN_OUTPUT_CHAR_THRESHOLD = 2600`).
 -   Detects missing critical sections (Markdown Headers).
 -   Detects leaked internal tags (Pollution).
 -   Avoids semantic validation.
@@ -220,13 +221,13 @@ The validator trades small compute loss for structural trust protection.
 
 ## 11. Phase Definition: Empirical Observation
 
-The next phase is not architectural. It is observational.
+The next phase is an observational horizon set for **100 actual executions or 2 active weeks, whichever comes first.**
 
 Objective:
 
--   Measure real-world behavior.
+-   Measure real-world behavior and token distribution (p50, p75, p90).
 -   Observe structural failure rates.
--   Observe validator trigger frequency.
+-   Observe validator trigger frequency, particularly around the 2600-character collapse limit.
 -   Observe dispute rate.
 -   Observe conversion rate.
 
