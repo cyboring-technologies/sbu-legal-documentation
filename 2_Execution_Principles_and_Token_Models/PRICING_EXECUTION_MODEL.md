@@ -47,7 +47,7 @@ PRICE_CENTS = BASE_RATE (500) + (PAGE_COUNT * PER_PAGE_RATE (100))
 ```
 **Process**:
 1.  **Quote**: Gateway verifies the `CostManifest` signature. Calculates `priceCents`. Returns `SignedQuote` (JWT).
-2.  **Intent**: Gateway verifies `SignedQuote`. Creates a Stripe `PaymentIntent`.
+2.  **Intent**: Gateway verifies `SignedQuote`. Creates a Stripe `PaymentIntent` with `capture_method: 'manual'` (Authorization Hold).
 3.  **Binding**: The Gateway locks the transaction parameters into Stripe Metadata:
     *   `jobId`: Target Engine instance.
     *   `complexityHash`: Content identity.
@@ -62,9 +62,9 @@ Authority is granted only upon cryptographic confirmation of payment settlement.
 **Location**: `sbu-legal-gateway`
 **Endpoint**: `POST /checkout/finalize`
 **Mechanism**:
-1.  **Settlement**: Stripe processes the payment. Status becomes `succeeded`.
+1.  **Settlement**: Stripe processes the payment method. Status becomes `requires_capture` (Authorization Hold).
 2.  **Validation**: Gateway retrieves the `PaymentIntent`.
-3.  **Cross-Check**: Verifies `amount_received` matches the signed expectation and metadata binding.
+3.  **Cross-Check**: Verifies `amount` matches the signed expectation and metadata binding.
 4.  **Issuance**: Gateway mints a single-use `ExecutionToken` (JWT).
     *   **Scope**: `EXECUTE_IRREVERSIBLE`
     *   **Subject**: `jobId`
@@ -103,11 +103,12 @@ The system adheres to a "Cash Transaction" model. Failure results in total loss 
 *   Security Violation (Token mismatch).
 *   Timeout.
 
-**Action (Incineration)**:
-1.  **Status**: `authorityState` explicitly marked `CONSUMED_FAILURE`.
-2.  **Storage**: `state.storage.deleteAll()` invoked immediately.
-3.  **Response**: `500 Internal Server Error`.
-4.  **Recovery**: None. The `jobId` is burned. The user must restart (upload -> pay -> execute).
+**Action (Incineration & Economic Latch)**:
+1.  **Cancel Hold**: The Engine explicitly cancels the Stripe authorization hold (`stripe.paymentIntents.cancel()`).
+2.  **Status**: `authorityState` explicitly marked `CONSUMED_FAILURE`.
+3.  **Storage**: `state.storage.deleteAll()` invoked immediately.
+4.  **Response**: `500 Internal Server Error`.
+5.  **Recovery**: None. The `jobId` is burned. The user must restart (upload -> pay -> execute).
 
 ## 9. EXPLICIT NON-CONCEPTS
 The following do not exist in the system architecture:

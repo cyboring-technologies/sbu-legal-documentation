@@ -95,7 +95,7 @@ immediately invalidated after use.
 
 5. Payment Rubicon Responsibilities
 
-The Rubicon occurs when the user confirms intent to generate the draft and completes payment.
+The Rubicon occurs when the user confirms intent to generate the draft and authorizes the payment hold (`capture_method: 'manual'`).
 
 At that instant, Gateway V2 MUST:
 
@@ -211,6 +211,6 @@ This document becomes the sole Gateway authority.
 
 12. Final Rule
 
-The Gateway does not execute value.
+The Gateway does not execute value or capture funds.
 It authorizes destruction.
 And it exists for a single moment only.

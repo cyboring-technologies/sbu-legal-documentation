@@ -131,7 +131,9 @@ inside `/execute_after_payment`.
 There is no polling.
 There is no POST_AUTHORITY passive state.
 There is no intermediate confirmation.
-Payment confirmation triggers irreversible generation.
+Payment authorization (Hold) triggers irreversible generation.
+If draft passes structural integrity, the Engine explicitly calls `stripe.paymentIntents.capture()`.
+If generation or validation fails, it calls `stripe.paymentIntents.cancel()`.
 
 4.3 Post-Authority State (Irreversible · One-Shot)
 
