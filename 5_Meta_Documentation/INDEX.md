@@ -31,6 +31,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **PROMPT_SYSTEM_STATE_V2.md**
     Documents the prompt engineering architecture. It uses a "Strict Envelope" model to segregate system instructions from user content to ensure structural integrity and prevent prompt injection or "bleed-through."
 
+*   **PROMPT_HARDENING_PHASE_1.md**
+    A technical addendum recording the prompt hardening updates made in Phase 1 to improve legal density, mandate a closed deductive syllogism (Fact → Rule → Subsumption → Consequence), and eliminate pedagogical fluff.
+
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*
 

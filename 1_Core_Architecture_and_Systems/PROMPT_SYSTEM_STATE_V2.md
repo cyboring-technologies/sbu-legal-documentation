@@ -72,7 +72,8 @@ The envelope:
 -   Maximally discourages bleed‑through from source text.
 -   Encapsulates untrusted user content.
 -   Prevents identity contamination.
--   Actively prohibits factual fabrication and mandates explicit Rule-Fact-Inference-Conclusion structures via the `STRUCTURAL_MANDATE`.
+-   Actively prohibits factual fabrication and mandates a closed deductive legal structure (Fact → Rule → Subsumption → Consequence) for legally operative claims via the `STRUCTURAL_MANDATE`.
+-   Enforces strict `NEGATIVE_CONSTRAINTS` to prohibit pedagogical explanations, abstract legal tone, and generalizations, ensuring high regulatory density.
 
 This does **not** guarantee perfect isolation. It provides high‑probability structural containment.
 

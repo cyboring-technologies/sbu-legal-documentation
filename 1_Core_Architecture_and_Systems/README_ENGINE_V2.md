@@ -139,7 +139,7 @@ After the Rubicon:
 
 Document is frozen.
 
-The Engine generates the draft exactly once.
+The Engine generates the draft exactly once. The Engine enforces a closed deductive legal structure (Fact → Rule → Subsumption → Consequence) for legally operative claims.
 
 The user may:
 
