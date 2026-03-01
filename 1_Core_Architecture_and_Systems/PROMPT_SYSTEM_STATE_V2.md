@@ -125,7 +125,7 @@ The validator is intentionally minimal.
 
 It:
 
--   Detects structural collapse using a parameterized conservative threshold (`MIN_OUTPUT_CHAR_THRESHOLD = 2600`).
+-   Detects structural collapse using an empirical dynamic threshold dictionary (`MIN_OUTPUT_CHAR_THRESHOLDS` mapping limits by `draftType`).
 -   Detects missing critical sections (Markdown Headers).
 -   Detects leaked internal tags (Pollution).
 -   Avoids semantic validation.
@@ -227,7 +227,7 @@ Objective:
 
 -   Measure real-world behavior and token distribution (p50, p75, p90).
 -   Observe structural failure rates.
--   Observe validator trigger frequency, particularly around the 2600-character collapse limit.
+-   Observe validator trigger frequency, particularly ensuring the dynamic limits by `draftType` correctly balance security vs false drops.
 -   Observe dispute rate.
 -   Observe conversion rate.
 
