@@ -81,8 +81,6 @@ Render document preview.
 
 Execute deterministic structural parsing.
 
-Extract structural hints from the source document using deterministic regex passes (verbatim values only — no inference).
-
 Accept attorney-supplied supplemental facts via the controlled fact channel (`TRUSTED_STRATEGIC_CONTEXT`). This field is RAM-only, optional, and forwarded to the prompt at Rubicon crossing. It does not alter the authority model or introduce a new phase.
 
 In this state, the Engine MUST NOT:
@@ -139,9 +137,7 @@ If generation or validation fails, it calls `stripe.paymentIntents.cancel()`.
 
 After the Rubicon:
 
-Document and metadata are frozen.
-
-Metadata is no longer editable.
+Document is frozen.
 
 The Engine generates the draft exactly once.
 
@@ -161,7 +157,7 @@ No retries, resets, or re-execution are permitted.
 
 All session data lives only in volatile memory.
 
-No document, metadata, or draft is persisted to:
+No document or draft is persisted to:
 
 databases,
 

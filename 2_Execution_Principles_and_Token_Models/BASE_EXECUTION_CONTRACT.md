@@ -65,13 +65,7 @@ Display document preview.
 
 Perform structural parsing.
 
-Extract metadata using:
 
-Deterministic parsers
-
-Low-cost LLMs with no side effects.
-
-Allow metadata review and editing.
 
 In this state, the Engine CANNOT:
 
@@ -123,7 +117,7 @@ After payment, the Engine operates in irreversible one-shot mode.
 
 In this state:
 
-The existing document and metadata in memory are frozen.
+The existing document in memory is frozen.
 
 The Engine generates the draft.
 
@@ -156,8 +150,6 @@ After approval and final download:
 The session is completely incinerated:
 
 original document,
-
-metadata,
 
 draft,
 
