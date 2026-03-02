@@ -143,7 +143,7 @@ The user may:
 
 review,
 
-refine,
+submit one final, formal amendment (which permanently locks into the UI as an uneditable historical record),
 
 approve the draft.
 

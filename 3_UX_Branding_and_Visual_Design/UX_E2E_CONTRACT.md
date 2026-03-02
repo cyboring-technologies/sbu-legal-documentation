@@ -261,7 +261,12 @@ Payment Celebration → **Immediate FAIL**
 
 * Review.
 
-* Refine within the act.
+* Submit a single, final refinement (Amendment Event).
+
+**Crucial "Refine" UX Constraints:**
+  * Inputs must freeze instantly upon submission (like Pre-Authority inputs).
+  * The refinement instruction must permanently display as an uneditable factual record (e.g., "Enmienda Aplicada").
+  * All refinement buttons must be completely removed from the DOM post-submission, leaving no "second chance" UI affordances.
 
 * Approve or reject.
 

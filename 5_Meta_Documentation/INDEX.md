@@ -55,6 +55,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **UX_E2E_CONTRACT.md**
     Governs the end-to-end user experience to enforce the "One-Shot" mental model. It prohibits UX patterns like "save for later," "create account," or "dashboard," ensuring the user perceives the action as a single, irreversible event.
 
+*   **UX_NARRATIVE_JOURNEY.md**
+    A chronological narrative documenting the end-to-end user journey from landing page CTA click to the ultimate incineration of the session. It describes the emotional tone, the mental model, and how the Sovereign Engine principles feel in practice to a client.
+
 *   **ANTI_PAGES_TEMPLATE_CONTRACT_V1.md**
     Standard document that defines the structural, semantic, and technical architecture of AntiPages.
 

@@ -123,9 +123,9 @@ The Engine generates the draft.
 
 The client can:
 
-edit,
+edit (locally/temporarily, if applicable),
 
-refine,
+submit a formal, singular amendment (a locked, visible "Enmienda Aplicada" event),
 
 approve the result.
 
