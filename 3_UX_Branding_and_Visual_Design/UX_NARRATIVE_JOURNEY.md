@@ -40,7 +40,7 @@ The initial view is minimal. The client is prompted to select a **type of proced
 
 ## 3. Preparation and Strategic Context (Pre-Authority · HITL 1)
 
-The Engine analyzes the uploaded file. The workspace expands into a two-panel view: a preview of their uploaded document, and a preparation area. 
+The Engine analyzes the uploaded file. The workspace expands into a two-panel view: a static visual preview of their uploaded document locked in the left column, and the active preparation area in the right column. 
 
 Crucially, the client sees the **Strategic Context** box (HITL 1)—a substantive, 3-line input field. Here, they are invited to formally inject additional context, facts, or strategies that the system should know before generating the draft. 
 
