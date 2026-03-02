@@ -79,8 +79,6 @@ Accept document uploads.
 
 Render document preview.
 
-Execute deterministic structural parsing.
-
 Accept attorney-supplied supplemental facts via the controlled fact channel (`TRUSTED_STRATEGIC_CONTEXT`). This field is RAM-only, optional, and forwarded to the prompt at Rubicon crossing. It does not alter the authority model or introduce a new phase.
 
 In this state, the Engine MUST NOT:
