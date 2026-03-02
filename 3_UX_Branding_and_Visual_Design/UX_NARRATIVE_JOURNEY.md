@@ -30,7 +30,7 @@ They make a conscious decision to proceed and click the primary CTA (e.g., "Gene
 
 ## 2. Mounting the Engine and The Blank Slate
 
-Clicking the CTA transitions the client directly into the Sovereign Engine. The transition is absolute—the URL might change, but there is no "onboarding", no "Welcome back" message, and no navigation menu. The Engine simply *is*. It occupies the entire viewport, functioning as a completely distinct workspace.
+Clicking the CTA transitions the client directly into the Sovereign Engine. The transition is absolute—the URL might change, but there is no "onboarding", no "Welcome back" message, and no navigation menu. The Engine simply *is*. It occupies the entire viewport, functioning as a completely distinct workspace, down to its adaptive favicons (light/dark SVG) that match the client's OS environment for a native, embedded feel.
 
 The initial view is minimal. The client is prompted to select a **type of procedure** (e.g., "Contestar Demanda") and upload their foundational document (a PDF or DOCX). They click the primary "Cargar Documento" button (which utilizes the primary CTA1 format) to push their file into the Engine.
 
@@ -54,7 +54,7 @@ At this stage, everything is safe and reversible. The client can change the file
 
 ## 4. Crossing the Rubicon (Payment Authorization)
 
-The client completes their payment details and clicks the decisive, primary execution button—often styled with a firm "Autorizar y Ejecutar". 
+The client completes their payment details and clicks the decisive, primary execution button—often styled with a firm "Autorizar y Ejecutar". The button does not shrink or bounce on click like a typical web app; it feels solid and immovable, reacting only with a strict color transition to reinforce gravity.
 
 This is the psychological "Rubicon."
 
@@ -71,9 +71,9 @@ Upon clicking:
 
 The Engine immediately utilizes the consumed token to generate the legal draft based on the uploaded file and the Strategic Context. 
 
-During this waiting state, to enforce the gravity of the post-authorization phase, a `minimal-spinner` appears with a strict, verbatim warning to manage expectations and convey irreversibility: 
+During this waiting state, to enforce the gravity of the post-authorization phase, a `minimal-spinner` with a strict, stepped mechanical animation (rather than a fluid, smooth spin) appears alongside a verbatim warning to manage expectations and convey irreversibility: 
 *“No cierre esta ventana. La ejecución está en curso y no puede reiniciarse… La ejecución puede tomar minutos dependiendo del contexto.”*
-The intention of this spinning wheel and its copy is not just to show a loading state, but to functionally remind the user that a substantive, non-interruptible legal process is occurring on the backend. Once completed, the result appears decisively in the right-hand panel.
+The intention of this mechanically-ticking spinning wheel and its copy is not just to show a loading state, but to functionally remind the user that a substantive, non-interruptible legal process is occurring on the backend. Once completed, the result appears decisively in the right-hand panel.
 
 The client is now reviewing a generated legal artifact. The UI remains sober and focused. They cannot restart the Engine, they cannot process a different file, and they cannot change their original Strategic Context. They have one document in front of them: the result of their authorization.
 
@@ -96,7 +96,7 @@ The moment the amendment is submitted, the UX physically enforces the One-Shot r
 
 There is no "second try". There is no chat interface. The client sees exactly what they asked for locked permanently into the UI as an unchangeable historical record of their amendment. 
 
-The Engine processes this one final instruction and updates the draft. Similar to the initial generation, this phase surface a `minimal-spinner` with a nearly identical verbatim warning: 
+The Engine processes this one final instruction and updates the draft. Similar to the initial generation, this phase surfaces a mechanically ticking `minimal-spinner` with a nearly identical verbatim warning: 
 *“No cierre esta ventana. La refinación está en curso y no puede reiniciarse… Este proceso puede tomar minutos dependiendo del contexto.”*
 The intention here mirrors the previous step: it confirms to the client that this action, too, is a singular, irreversible computational act that must not be disrupted.
 
@@ -115,7 +115,7 @@ The client clicks the button.
 1. Their browser receives the finalized `.docx` file.
 2. In the exact same millisecond, the Engine violently incinerates the session. 
 3. The workspace panels vanish entirely. 
-4. A stark, red-bordered message appears indicating that the session has been closed, all data has been permanently destroyed, and the execution token is dead.
+4. A stark, deep-burgundy bordered message (avoiding bright "error red" to signify successful closed-loop deletion, not failure) appears indicating that the session has been closed, all data has been permanently destroyed, and the execution token is dead.
 
 There is no "Thank you for using our service." There is no "Dashboard" to return to. The system has done its job, disposed of all evidence, and ceased to exist for that user.
 
