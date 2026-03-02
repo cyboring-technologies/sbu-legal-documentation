@@ -32,7 +32,9 @@ They make a conscious decision to proceed and click the primary CTA (e.g., "Gene
 
 Clicking the CTA transitions the client directly into the Sovereign Engine. The transition is absolute—the URL might change, but there is no "onboarding", no "Welcome back" message, and no navigation menu. The Engine simply *is*. It occupies the entire viewport, functioning as a completely distinct workspace, down to its adaptive favicons (light/dark SVG) that match the client's OS environment for a native, embedded feel.
 
-The initial view is minimal. The client is prompted to select a **type of procedure** (e.g., "Contestar Demanda") and upload their foundational document (a PDF or DOCX). They click the primary "Cargar Documento" button (which utilizes the primary CTA1 format) to push their file into the Engine.
+The initial view is minimal. The client is prompted to select a **type of procedure** and upload their foundational document (a PDF or DOCX). 
+
+To enforce strict intentionality and prevent accidental submissions, the procedure dropdown mandates interaction via an un-selectable "Select Service..." placeholder. If the client clicks the primary "Cargar Documento" button (CTA1) without fulfilling these absolute prerequisites, the Engine relies entirely on the browser's native OS-level HTML5 validation tooltips. By abstaining from custom-styled web tooltips and using optically-centered, un-stylable system alerts, the Engine reinforces its identity as a crude, sovereign terminal rather than an obliging, fluid SaaS application.
 
 **Mental Model:** *"I am providing the raw materials for my case."*
 
