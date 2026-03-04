@@ -44,7 +44,16 @@ To enforce strict intentionality and prevent accidental submissions, the procedu
 
 The Engine analyzes the uploaded file. The workspace expands into a two-panel view: a static visual preview of their uploaded document locked in the left column, and the active preparation area in the right column. 
 
-Crucially, the client sees the **Strategic Context** box (HITL 1)—a substantive, 3-line input field. Here, they are invited to formally inject additional context, facts, or strategies that the system should know before generating the draft. To reduce cognitive friction while maintaining a formal tone, this field includes a strictly juridical placeholder (e.g., `Ejemplo: "Incluir excepción de prescripción y alegar falta de notificación válida."`). It visually matches the HITL 2 placeholder (grey text, disappears on first keystroke, no persistent tooltips), preserving the solemn, non-tutorial nature of the Engine. 
+Crucially, the client sees the **Strategic Context** box (HITL 1)—a substantive, 3-line input field accompanied by an **"Incorporate Context"** (CTA2 Outline) button. Here, they are invited to formally inject additional context, facts, or strategies. 
+
+To reduce cognitive friction while maintaining a formal tone, this field includes a strictly juridical placeholder (e.g., `Ejemplo: "Incluir excepción de prescripción y alegar falta de notificación válida."`). 
+
+Before proceeding to payment, the client must click the **"Incorporate Context"** button to formally commit their strategy. This creates a conscious action before the Rubicon. Upon clicking:
+* The textarea instantly freezes, switching to a muted background with 80% opacity (`var(--color-muted)`), signaling that the facts are now "embedded" in the execution parameters.
+* The button vanishes, replaced by a subtle "Embedded Context" indicator.
+* The act remains reversible: clicking the frozen box immediately restores the active editing state and the button.
+
+This visually matches the HITL 2 placeholder and commitment pattern, preserving the solemn, non-tutorial nature of the Engine.
 
 Below this, a clear **Price** for the execution is displayed alongside a payment form. 
 
@@ -77,9 +86,13 @@ During this waiting state, to enforce the gravity of the post-authorization phas
 *“No cierre esta ventana. La ejecución está en curso y no puede reiniciarse… La ejecución puede tomar minutos dependiendo del contexto.”*
 The intention of this mechanically-ticking spinning wheel and its copy is not just to show a loading state, but to functionally remind the user that a substantive, non-interruptible legal process is occurring on the backend. Once completed, the result appears decisively in the right-hand panel.
 
-The client is now reviewing a generated legal artifact. The UI remains sober and focused. They cannot restart the Engine, they cannot process a different file, and they cannot change their original Strategic Context. They have one document in front of them: the result of their authorization.
+The client is now reviewing a generated legal artifact. The UI remains sober and focused. They cannot restart the Engine, they cannot process a different file, and they cannot change their original Strategic Context. 
 
-**Mental Model:** *"This is the result I paid for."*
+The **Strategic Context** box (HITL 1) remains visible as a record of the session's parameters, but it is now permanently frozen in its greyed-out visual state (`var(--color-muted)`, 80% opacity), with the "Incorporate" button and indicators removed. If the client crossed the Rubicon without providing any context, the field explicitly displays the verbatim message: **"No se incorporó contexto adicional."** to ensure the input is never seen in its "active" or placeholder state post-execution.
+
+They have one document in front of them: the result of their authorization.
+
+**Mental Model:** *"This is the result I paid for and the context I provided is locked."*
 
 ---
 
@@ -92,7 +105,7 @@ At the bottom of the review panel, the client has the option to click "Refinar".
 The client types a specific instruction (e.g., "Adjust the damages claim to explicitly mention the loss of the vehicle"). They click Submit.
 
 The moment the amendment is submitted, the UX physically enforces the One-Shot rule:
-* The 3-line input instantly freezes, turning grey and non-editable. 
+* The 3-line input instantly freezes, turning grey and non-editable (`var(--color-muted)`, 80% opacity), mirrored identically to the HITL 1 formalization pattern. 
 * It explicitly labels itself as "Enmienda Aplicada" (Amendment Applied).
 * All refinement buttons completely disappear from the screen.
 
