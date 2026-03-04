@@ -100,9 +100,11 @@ They have one document in front of them: the result of their authorization.
 
 While the act is irreversible, the system logically accommodates one final correction event to ensure accuracy. 
 
-At the bottom of the review panel, the client has the option to click "Refinar". This button is styled as a strict monochrome outline (CTA2 variant) to indicate it is a secondary, formal action. Clicking it opens the **Refinement** input (HITL 2)—another substantive, 3-line input box explicitly identical in weight and appearance to the first one.
+At the bottom of the review panel, the client initially sees two actions: "Refinar" (styled as a strict monochrome outline, CTA2 variant) and "Aprobar" (Primary Solid). 
 
-The client types a specific instruction (e.g., "Adjust the damages claim to explicitly mention the loss of the vehicle"). They click Submit.
+Clicking "Refinar" triggers a **Morphing State** (Progressive Disclosure): the initial review buttons completely disappear to avoid conflicting primary CTAs. In their place, the **Refinement** input (HITL 2) appears—another substantive, 3-line input box explicitly identical in weight and appearance to the first one, alongside two context-specific buttons: "Volver" (Return, matching the CTA2 outline style) and "Aplicar Enmienda" (Apply Amendment, using the Primary Solid style). Clicking "Volver" instantly reverts the UI to the initial review state.
+
+The client types a specific instruction (e.g., "Adjust the damages claim to explicitly mention the loss of the vehicle"). They click "Aplicar Enmienda" (Apply Amendment).
 
 The moment the amendment is submitted, the UX physically enforces the One-Shot rule:
 * The 3-line input instantly freezes, turning grey and non-editable (`var(--color-muted)`, 80% opacity), mirrored identically to the HITL 1 formalization pattern. 
@@ -113,7 +115,7 @@ There is no "second try". There is no chat interface. The client sees exactly wh
 
 The Engine processes this one final instruction and updates the draft. Similar to the initial generation, this phase surfaces a mechanically ticking `minimal-spinner` with a nearly identical verbatim warning: 
 *“No cierre esta ventana. La refinación está en curso y no puede reiniciarse… Este proceso puede tomar minutos dependiendo del contexto.”*
-The intention here mirrors the previous step: it confirms to the client that this action, too, is a singular, irreversible computational act that must not be disrupted.
+The intention here mirrors the previous step: it confirms to the client that this action, too, is a singular, irreversible computational act that must not be disrupted. Upon successful completion of this final amendment, the Engine skips any further manual approval and leads the user directly to the finalization phase.
 
 **Mental Model:** *"I have submitted my final correction. It is locked in."*
 
@@ -121,7 +123,7 @@ The intention here mirrors the previous step: it confirms to the client that thi
 
 ## 7. Approval, Download, and Total Incineration
 
-Once the client is satisfied with the definitive draft (either the initial version or the one post-amendment), they click the "Aprobar" (Approve) button, which utilizes the solid primary authoritative color (`var(--color-primary)` - Blue-Grey Accent) from the Institutional Greyscale palette, deliberately avoiding cheerful "success green" tones to maintain the gravity of the legal process.
+Once the client is satisfied with the definitive draft—either by manually clicking the "Aprobar" (Approve) button for the initial version or automatically arriving here after a successful refinement—the interface transitions to its terminal state. The "Aprobar" action utilized the solid primary authoritative color (`var(--color-primary)` - Blue-Grey Accent) from the Institutional Greyscale palette, deliberately avoiding cheerful "success green" tones to maintain the gravity of the legal process.
 
 Directly below the frozen amendment, the final CTA appears: **"Descargar y Cerrar"** (Download and Close). Like the initial upload button, this button is styled strictly with the primary CTA1 format, providing functional symmetry. It warns them clearly that downloading will terminate the session.
 
