@@ -100,7 +100,7 @@ They have one document in front of them: the result of their authorization.
 
 While the act is irreversible, the system logically accommodates one final correction event to ensure accuracy. 
 
-At the bottom of the review panel, the client has the option to click "Refinar". This opens the **Refinement** input (HITL 2)—another substantive, 3-line input box explicitly identical in weight and appearance to the first one. 
+At the bottom of the review panel, the client has the option to click "Refinar". This button is styled as a strict monochrome outline (CTA2 variant) to indicate it is a secondary, formal action. Clicking it opens the **Refinement** input (HITL 2)—another substantive, 3-line input box explicitly identical in weight and appearance to the first one.
 
 The client types a specific instruction (e.g., "Adjust the damages claim to explicitly mention the loss of the vehicle"). They click Submit.
 
@@ -121,7 +121,7 @@ The intention here mirrors the previous step: it confirms to the client that thi
 
 ## 7. Approval, Download, and Total Incineration
 
-Once the client is satisfied with the definitive draft (either the initial version or the one post-amendment), they click the green "Aprobar" (Approve) button.
+Once the client is satisfied with the definitive draft (either the initial version or the one post-amendment), they click the "Aprobar" (Approve) button, which utilizes the solid primary authoritative color (`var(--color-primary)` - Blue-Grey Accent) from the Institutional Greyscale palette, deliberately avoiding cheerful "success green" tones to maintain the gravity of the legal process.
 
 Directly below the frozen amendment, the final CTA appears: **"Descargar y Cerrar"** (Download and Close). Like the initial upload button, this button is styled strictly with the primary CTA1 format, providing functional symmetry. It warns them clearly that downloading will terminate the session.
 
