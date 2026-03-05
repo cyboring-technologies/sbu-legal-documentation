@@ -230,7 +230,7 @@ Two primary button components manage call-to-action hierarchies, located in `src
 
 | Variant | Visual Style | Use Case |
 | :--- | :--- | :--- |
-| `outline` | 2px border. Hover changes border/text to **Primary** color. | Secondary CTAs, outlined actions. |
+| `outline` | Solid **White** background (`#FFFFFF`), 2px border. Hover changes border/text to **Primary** color. | Secondary CTAs, outlined actions. |
 | `ghost` | No border/background initially. Hover adds subtle accent background and primary text. | Tertiary actions, minimal emphasis. |
 
 **Sizes:** Same as `CTAButton` (sm, md, lg).
