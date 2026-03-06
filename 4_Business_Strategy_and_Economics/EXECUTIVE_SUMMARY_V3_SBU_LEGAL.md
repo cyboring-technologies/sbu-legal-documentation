@@ -73,6 +73,8 @@ This configuration produces a low fixed-cost base, high gross margin (>90%), and
 * **Secondary Channel:** Exact-match Probabilistic Ads (Stop-loss regulated validator).
 * **Purchase Friction:** Trust threshold overcome exclusively by the "No Account/Immediate Incineration" engine contract.
 * **Purchase Trigger:** Imminent procedural deadline.
+* **SEO Pipeline:** `Google indexes → impressions appear → clicks arrive → CR is measured`.
+* **Current Operational Scope:** 24 transactional pages targeting 8 legal services within 1 jurisdiction (JUR_1).
 
 ---
 
@@ -169,6 +171,7 @@ This configuration produces a low fixed-cost base, high gross margin (>90%), and
 * **Operational Horizon:** March 2026 (Month 0) to December 2026 (Month 9).
 * **Bottleneck:** Indexation velocity and validation of specific transactional SEO inventory queries.
 * **Driver:** Proving the fundamental math without a retention strategy.
+* **Status Details:** Fully SEO-ready. Active inventory consists of 24 transactional pages mapping 8 specific legal services for 1 jurisdiction. Execution relies on the active SEO pipeline (`Google indexes → impressions appear → clicks arrive → CR is measured`).
 
 ---
 

@@ -60,6 +60,8 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **ANTI_PAGES_TEMPLATE_CONTRACT_V1.md**
     Standard document that defines the structural, semantic, and technical architecture of AntiPages.
+    *   *Update (2026-03-05): Added semantic SEO expansion, pricing transparency, and CTR headline optimization to `AntiPage.tsx` without violating structural block constraints.*
+    *   *Update (2026-03-05): Restructured Next.js App Router sitemap generation in `src/app/sitemap.ts` to dynamically crawl and map all 24 Tier-A service variants from `antipages.json`.*
 
 ## 4. Business Strategy, Marketing & Economics
 *Documents defining the rules out in the market, launch numbers, and business propositions.*
