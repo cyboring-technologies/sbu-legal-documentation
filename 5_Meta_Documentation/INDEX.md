@@ -24,6 +24,8 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
+    *   *Update (2026-03-07): Added `/sitemap` HTML utility page (static, lists all pages + 24 AntiPages) and `generate-rss.mjs` post-build script producing `out/rss.xml` (4 blog items, RSS 2.0 + Atom self-link). Added `postbuild` npm hook to `package.json`. Corrected HTML sitemap `robots` directive from `noindex` to default `index, follow`. All changes are within the Landing SEO scope and do not affect Engine, Gateway, or execution contracts.*
+
 
 *   **METADATA_EXTRACTION_ARCHITECTURE_V2.md** *(Deprecated — 2026-02-25)*
     Archived. Described the regex-based structural extraction pipeline (`Stage3Extractor.js`, `/extract`, `/review_metadata`, SHA-256 freeze, `<TRUSTED_CONTEXT>` injection). Fully removed during the Sovereign LLM migration (2026-02-25). The LLM is now the sole interpreter of source content. Retained for historical reference only.
