@@ -161,9 +161,9 @@ This is subordinate to `README_LANDING.md`.
 
 Search Engine Optimization metrics follow a rigid, reproducible formula to ensure statistical comparability between pages.
 
-* **Title Tag Pattern**: `[Service] in [Jurisdiction] | SBU-Legal`
-* **Meta Description Pattern**: `Genere su escrito legal para [servicio] en [jurisdiccion] listo para presentar en minutos. Ejecución única. Sin cuentas. Sin almacenamiento.`
-* **Structured Data Rule**: Each AntiPage must inject a parametric `Service` JSON-LD schema mapping the `provider` to `Organization` (Cyboring Technologies LLC) and `brand` to `Brand` (documentos.legal). 
+* **Title Tag Pattern**: `[Service] en [Jurisdiction] — Documento listo en minutos | documentos.legal`
+* **Meta Description Pattern**: `Genere su escrito legal para [servicio] en [jurisdicción] listo para presentar en minutos. Sin cuentas. Sin almacenamiento. Ejecución única.`
+* **Structured Data Rule**: Each AntiPage must inject a parametric `Service` JSON-LD schema (mapping `provider`, `brand`, `areaServed`, `url`) and a `BreadcrumbList` schema reflecting the canonical path.
 * **Canonical Rule**: Base canonical mapped purely to the route matrix.
 * **Prohibitions**: No keyword stuffing, no mandatory blog interlinking, no sidebar.
 
