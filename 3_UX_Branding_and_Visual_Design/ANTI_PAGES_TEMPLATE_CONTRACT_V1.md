@@ -92,7 +92,8 @@ The AntiPage interface consists of a fixed, immutable order of blocks. Modificat
 4. **Irreversibility Statement**: Explains the immutable and non-refundable nature of the event. Cannot contain mitigating promotional language.
 5. **Process Summary**: Outlines the progression strictly at the Landing-level, independent of backend Engine states. Cannot display live state or trackers.
 6. **Trust / Structural Guarantees**: Confirms legal or structural verifiability. Cannot contain conditional testimonials or exclusive FAQs.
-7. **CTA Block**: Contains the single interaction element routing to the Engine. Cannot contain alternative links.
+7. **Related Procedures (Internal Crawl Graph)**: Programmatically dynamic block bridging the siloed service architecture. Extracts up to 4 disparate procedures identically bound by `jurisdiction`. Enforces graph entropy via randomization. Eliminates non-crawlable singletons.
+8. **CTA Block**: Contains the single interaction element routing to the Engine. Cannot contain alternative links.
 
 **Prohibitions:**
 * Ad hoc micro-sections are prohibited.
@@ -165,6 +166,7 @@ Search Engine Optimization metrics follow a rigid, reproducible formula to ensur
 * **Meta Description Pattern**: `Genere su documento legal para [servicio] en [jurisdicción]. Listo para presentar en minutos. Sin cuentas. Sin almacenamiento.`
 * **Structured Data Rule**: Each AntiPage must inject a parametric `Service` JSON-LD schema (mapping `provider`, `brand`, `areaServed`, `url`) and a `BreadcrumbList` schema reflecting the canonical path.
 * **Canonical Rule**: Base canonical mapped purely to the route matrix.
+* **Manifest Injection Rule**: To eradicate indexation latency, a flat programmatic index of canonical URLs must be regenerated at `seo/indexation_manifest.json` enabling Search Console API bulk submissions.
 * **Prohibitions**: No keyword stuffing, no mandatory blog interlinking, no sidebar.
 
 Statistical comparability between pages is confirmed by these rules.

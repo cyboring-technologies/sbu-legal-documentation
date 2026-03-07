@@ -48,6 +48,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **BRANDING_LANDING.md**
     Specifies the visual identity and UI standards for the landing page. It details the "Institutional Greyscale" color palette, typography (Inter/IBM Plex Sans), and component specifications (CTAs, Hero, Grid Patterns).
+    *   *Update (2026-03-07): Inserted structural authority microcopy ("Legal Technology Engine") inside the homepage viewport, securing semantic context density.*
 
 *   **ENGINE_VISUAL_CONTRACT.md**
     Strictly governs how the Engine is rendered. It mandates full viewport sovereignty (no headers/footers) and prohibits enclosing the Engine in modals or containers, ensuring it feels like a distinct runtime.
@@ -63,6 +64,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-05): Added semantic SEO expansion, pricing transparency, and CTR headline optimization to `AntiPage.tsx` without violating structural block constraints.*
     *   *Update (2026-03-05): Restructured Next.js App Router sitemap generation in `src/app/sitemap.ts` to dynamically crawl and map all 24 Tier-A service variants from `antipages.json`.*
     *   *Update (2026-03-07): Standardized Title and Meta Description patterns for SERP conversions (Action + Document + Time) and injected targeted JSON-LD Structured Data models (Service/FAQ/Article) associating the 'documentos.legal' product to 'Cyboring Technologies LLC'.*
+    *   *Update (2026-03-07): Validated indexing manifest injection and the systematic application of a randomized internal crawl graph (4 dynamic links) appended as the penultimate structural block.*
 
 ## 4. Business Strategy, Marketing & Economics
 *Documents defining the rules out in the market, launch numbers, and business propositions.*
