@@ -106,6 +106,24 @@ Blocks may receive parametric text, but may not:
 - Inject exclusive components
 - Change internal hierarchy
 
+### Legal Layout Footer (Global — Outside Template)
+
+A minimal `<footer>` element is rendered **after** the CTA block, as a global layout element of the `AntiPage` component. It is **not a template block** and does not alter the block order, count, or invariant.
+
+**Content (fixed, non-parametric):**
+- Link: `Términos de Servicio` → `/legal/terms`
+- Link: `Política de Privacidad` → `/legal/privacy`
+- Text: `Cyboring Technologies LLC`
+
+**Visual constraints:** `text-xs`, `text-muted-foreground`, centered, separated from CTA by a `border-t`.
+
+**Prohibitions for this footer:**
+- Must not contain additional navigation links
+- Must not contain marketing copy
+- Must not contain icons
+- Must remain static (no SSR, no fetch, no runtime logic)
+- Must not be moved inside any template block
+
 ---
 
 ## 4. H1 Pattern Contract
@@ -153,6 +171,8 @@ Execution is routed exclusively to the Engine. The Call to Action complies with 
 * No lead capture.
 * No external forms.
 * No dynamic pricing widget.
+
+The legal layout footer (see Section 3) is rendered **after** the CTA and is not considered an additional CTA or navigation element. The CTA invariant remains unviolated.
 
 This is subordinate to `README_LANDING.md`.
 

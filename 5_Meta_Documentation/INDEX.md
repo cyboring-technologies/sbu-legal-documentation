@@ -67,6 +67,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-05): Restructured Next.js App Router sitemap generation in `src/app/sitemap.ts` to dynamically crawl and map all 24 Tier-A service variants from `antipages.json`.*
     *   *Update (2026-03-07): Standardized Title and Meta Description patterns for SERP conversions (Action + Document + Time) and injected targeted JSON-LD Structured Data models (Service/FAQ/Article) associating the 'documentos.legal' product to 'Cyboring Technologies LLC'.*
     *   *Update (2026-03-07): Validated indexing manifest injection and the systematic application of a randomized internal crawl graph (4 dynamic links) appended as the penultimate structural block.*
+    *   *Update (2026-03-07): Added global Legal Layout Footer to `AntiPage.tsx` as a layout element rendered **after** the CTA block — outside the block template. Contains static links to `/legal/terms` (Términos de Servicio) and `/legal/privacy` (Política de Privacidad), plus "Cyboring Technologies LLC" attribution. Documented in Section 3 and Section 6 of this contract. Block order, CTA invariant, and `antipages.json` remain unmodified.*
 
 ## 4. Business Strategy, Marketing & Economics
 *Documents defining the rules out in the market, launch numbers, and business propositions.*
