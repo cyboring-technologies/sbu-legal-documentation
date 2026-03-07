@@ -221,7 +221,7 @@ The Landing Page deploys as a static site to Cloudflare Pages:
 - Internationalization and translations
 - Frontend performance optimizations
 - Accessibility improvements
-- SEO enhancements
+- SEO enhancements (including global injections of JSON-LD Schema structures for `Organization`, `Brand`, and `Service` identifying the Landing site strictly as the public-facing entity of Cyboring Technologies LLC)
 
 ### What Cannot Be Changed Here
 
