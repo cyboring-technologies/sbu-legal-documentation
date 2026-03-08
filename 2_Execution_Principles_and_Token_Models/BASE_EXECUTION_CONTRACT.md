@@ -131,6 +131,8 @@ approve the result.
 
 The Engine enables the final document download.
 
+*Note on LLM Stabilization:* Internal systemic provider retries (e.g., trying GPT-5.3 multiple times or falling back to Gemini due to API timeouts) are strictly considered intra-runtime operations. They do not constitute session extensions or re-executions, as long as the user only perceives and interacts with a single final generated draft.
+
 There is no:
 
 repetition,
