@@ -300,5 +300,6 @@ If you're unsure whether a change belongs in the Landing Page or the Engine/Gate
 ---
 
 **Last Updated**: 2026-03-07  
+**Update (2026-03-07)**: Fixed critical React hydration errors in AntiPages by implementing deterministic related-page sorting. Corrected `generateStaticParams` in `[slug]/page.tsx` and `blog/[slug]/page.tsx` to include all localized paths required for static export. Standardized internal navigation using localized `Link` components.  
 **Document Type**: Descriptive Reference  
 **Normative Authority**: None

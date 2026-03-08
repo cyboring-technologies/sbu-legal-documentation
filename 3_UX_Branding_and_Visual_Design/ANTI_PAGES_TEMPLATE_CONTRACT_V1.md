@@ -92,7 +92,7 @@ The AntiPage interface consists of a fixed, immutable order of blocks. Modificat
 4. **Irreversibility Statement**: Explains the immutable and non-refundable nature of the event. Cannot contain mitigating promotional language.
 5. **Process Summary**: Outlines the progression strictly at the Landing-level, independent of backend Engine states. Cannot display live state or trackers.
 6. **Trust / Structural Guarantees**: Confirms legal or structural verifiability. Cannot contain conditional testimonials or exclusive FAQs.
-7. **Related Procedures (Internal Crawl Graph)**: Programmatically dynamic block bridging the siloed service architecture. Extracts up to 4 disparate procedures identically bound by `jurisdiction`. Enforces graph entropy via randomization. Eliminates non-crawlable singletons.
+7. **Related Procedures (Internal Crawl Graph)**: Programmatically dynamic block bridging the siloed service architecture. Extracts up to 4 disparate procedures identically bound by `jurisdiction`. Enforces graph connectivity via deterministic sorting (ensuring hydration compatibility). Eliminates non-crawlable singletons.
 8. **CTA Block**: Contains the single interaction element routing to the Engine. Cannot contain alternative links.
 
 **Prohibitions:**
