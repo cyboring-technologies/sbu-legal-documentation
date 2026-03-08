@@ -44,7 +44,9 @@ To enforce strict intentionality and prevent accidental submissions, the procedu
 
 The Engine analyzes the uploaded file. The workspace expands into a two-panel view: a static visual preview of their uploaded document locked in the left column, and the active preparation area in the right column. 
 
-Crucially, the client sees the **Strategic Context** box (HITL 1)—a substantive, 3-line input field accompanied by an **"Incorporate Context"** (CTA2 Outline) button. Here, they are invited to formally inject additional context, facts, or strategies. 
+At the top of the preparation area, the client sees their actively selected **Procedure** alongside a "Cambiar" (Change) button. If they realize they clicked the wrong service on the Landing Page, they can seamlessly swap the procedure type here without losing their session or document. A fleeting "✓ Procedimiento actualizado" flashes, maintaining an airy, consequential responsiveness before instantly fading away. 
+
+Below this, the client sees the **Strategic Context** box (HITL 1)—a substantive, 3-line input field accompanied by an **"Incorporate Context"** (CTA2 Outline) button. Here, they are invited to formally inject additional context, facts, or strategies. 
 
 To reduce cognitive friction while maintaining a formal tone, this field includes a strictly juridical placeholder (e.g., `Ejemplo: "Incluir excepción de prescripción y alegar falta de notificación válida."`). 
 
@@ -88,7 +90,7 @@ The intention of this mechanically-ticking spinning wheel and its copy is not ju
 
 The client is now reviewing a generated legal artifact. The UI remains sober and focused. They cannot restart the Engine, they cannot process a different file, and they cannot change their original Strategic Context. 
 
-The **Strategic Context** box (HITL 1) remains visible as a record of the session's parameters, but it is now permanently frozen in its greyed-out visual state (`var(--color-muted)`, 80% opacity), with the "Incorporate" button and indicators removed. If the client crossed the Rubicon without providing any context, the field explicitly displays the verbatim message: **"No se incorporó contexto adicional."** to ensure the input is never seen in its "active" or placeholder state post-execution.
+The **Procedure** block, which previously offered a "Change" button and interactive dropdown, is now structurally purged from the DOM. Only the static label of the finalized procedure remains. The **Strategic Context** box (HITL 1) remains visible as a record of the session's parameters, but it is now permanently frozen in its greyed-out visual state (`var(--color-muted)`, 80% opacity), with the "Incorporate" button and indicators removed. If the client crossed the Rubicon without providing any context, the field explicitly displays the verbatim message: **"No se incorporó contexto adicional."** to ensure the input is never seen in its "active" or placeholder state post-execution.
 
 They have one document in front of them: the result of their authorization.
 

@@ -19,6 +19,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     The core architectural document for the Engine. It defines the "One-Shot" invariant, stating that the engine mounts once, runs continuously, allows no retries, and incinerates all data upon completion or failure.
     *   *Update (2026-03-07): Formalized the Routing Normalization (v2.1) making the Engine path-agnostic and the One-Shot Ephemeral Theme Handover Pattern for perceptual continuity.*
     *   *Update (2026-03-08): Documented the Dual-Layer Pre-Authority Structural Validation Gate blocking empty or unprocessable scanned uploads.*
+    *   *Update (2026-03-08): Documented the UI2 Editable Procedure functionality, defining how the frontend dynamically maintains the selector ephemerally and processed atomically at the Rubicon without requiring persistent DO overrides.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
@@ -62,6 +63,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **UX_NARRATIVE_JOURNEY.md**
     A chronological narrative documenting the end-to-end user journey from landing page CTA click to the ultimate incineration of the session. It describes the emotional tone, the mental model, and how the Sovereign Engine principles feel in practice to a client.
+    *   *Update (2026-03-08): Added the in-line interactive procedure UI to the Pre-Authority section and detailed its strict structural removal during the Rubicon execution freeze.*
 
 *   **ANTI_PAGES_TEMPLATE_CONTRACT_V1.md**
     Standard document that defines the structural, semantic, and technical architecture of AntiPages.

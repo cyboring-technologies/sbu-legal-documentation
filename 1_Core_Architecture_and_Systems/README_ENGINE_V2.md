@@ -95,6 +95,8 @@ Accept document uploads, protected by a **Dual-Layer Structural Validation Gate*
 
 Render document preview.
 
+Allow modification of the initially selected legal procedure via an inline selector. This change is fully ephemeral, persisting only in the client DOM, and is synchronously extracted and injected into the `/execute_after_payment` payload immediately prior to the Rubicon crossing.
+
 Accept attorney-supplied supplemental facts via the controlled fact channel (`TRUSTED_STRATEGIC_CONTEXT`). This field is RAM-only, optional, and forwarded to the prompt at Rubicon crossing. It does not alter the authority model or introduce a new phase.
 
 In this state, the Engine MUST NOT:
@@ -138,7 +140,7 @@ Only authority state changes.
 ### Rubicon Atomicity (Current Implementation)
 
 The execution authority is emitted and consumed atomically
-inside `/execute_after_payment`.
+inside `/execute_after_payment`. The endpoint seamlessly overrides the Durable Object's initial `draftType` context with the client's final explicit `draftType` payload without requiring new persistence mechanisms.
 
 There is no polling.
 There is no POST_AUTHORITY passive state.
