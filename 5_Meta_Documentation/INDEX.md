@@ -18,6 +18,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
     The core architectural document for the Engine. It defines the "One-Shot" invariant, stating that the engine mounts once, runs continuously, allows no retries, and incinerates all data upon completion or failure.
     *   *Update (2026-03-07): Formalized the Routing Normalization (v2.1) making the Engine path-agnostic and the One-Shot Ephemeral Theme Handover Pattern for perceptual continuity.*
+    *   *Update (2026-03-08): Documented the Dual-Layer Pre-Authority Structural Validation Gate blocking empty or unprocessable scanned uploads.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
@@ -57,6 +58,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **UX_E2E_CONTRACT.md**
     Governs the end-to-end user experience to enforce the "One-Shot" mental model. It prohibits UX patterns like "save for later," "create account," or "dashboard," ensuring the user perceives the action as a single, irreversible event.
+    *   *Update (2026-03-08): Explicitly codified the UI-1 Upload Structural Gate behavior. The Engine must reject garbage instantly to reinforce the strict institutional perception.*
 
 *   **UX_NARRATIVE_JOURNEY.md**
     A chronological narrative documenting the end-to-end user journey from landing page CTA click to the ultimate incineration of the session. It describes the emotional tone, the mental model, and how the Sovereign Engine principles feel in practice to a client.

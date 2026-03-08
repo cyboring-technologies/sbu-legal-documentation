@@ -91,7 +91,7 @@ This is the default initial state.
 
 In this state, the Engine MAY:
 
-Accept document uploads.
+Accept document uploads, protected by a **Dual-Layer Structural Validation Gate** (frontend word/char count and backend buffer scanning) that rejects empty or unprocessable scanned documents before generating a Cost Manifest.
 
 Render document preview.
 

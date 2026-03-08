@@ -162,6 +162,12 @@ Any transition signal like:
 
 * Defining the parameters of the action.
 
+### The Upload Structural Gate (UI-1)
+
+* Before passing to UI-2, the system acts as a rigid, institutional gate.
+* If a document is empty or a scanned image lacking digital text, it is **rejected instantly** pre-upload.
+* There is no quote gracefully generated for garbage. The upload stops dead. This reinforces the perception of the Engine as a strict machine, not a forgiving web form.
+
 ### Valid expectations
 
 * They can correct.
