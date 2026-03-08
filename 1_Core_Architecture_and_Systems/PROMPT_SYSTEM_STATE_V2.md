@@ -77,13 +77,20 @@ The envelope:
 
 This does **not** guarantee perfect isolation. It provides high‑probability structural containment.
 
-### 3.3 Pre-Prompt Sanitization Layer
+### 3.3 Pre-Prompt Defenses (Sanitization & Neutralization)
 
-Before the source document is injected into the `<UNTRUSTED_SOURCE>` block, it passes through a strict sanitization layer (`sanitizeUntrustedSource`).
+Before the source document is injected into the `<UNTRUSTED_SOURCE>` block, it passes through a strict two-layer passive defense:
 
-- **Function:** Neutralizes explicit imperative control phrases (e.g., "ignore all previous instructions", "system prompt", "you are chatgpt").
-- **Mechanism:** Regex-based replacement stripping out the tactical phrases and marking them as `[REMOVED_INSTRUCTION]`.
-- **Constraint:** This is a strictly pre-prompt string manipulation. It does not use an LLM, does not summarize, and does not alter the factual or semantic structure of the legal document. It only neutralizes structural prompt-injection attempts.
+1. **Sanitization (`sanitizeUntrustedSource`)**:
+   - **Function:** Removes high-risk control phrases.
+   - **Mechanism:** Regex-based replacement stripping out the tactical phrases and marking them as `[REMOVED_INSTRUCTION]`.
+
+2. **Structural Imperative Neutralization (`neutralizeImperatives`)**:
+   - **Function:** Neutralizes lingering imperative semantics inside the untrusted document without destroying legal context.
+   - **Mechanism:** Identifies imperative instruction patterns and wraps them in an inert document annotation `[DOCUMENT TEXT] <matched phrase>`. This breaks imperative authority (e.g., "override the system" becomes "[DOCUMENT TEXT] override the system").
+   - **Constraint:** Imperative Neutralization Layer applied before UNTRUSTED_SOURCE injection.
+
+- **Constraint:** Both are strictly pre-prompt, deterministic string manipulations. They do not use an LLM, do not introduce asynchronous logic, do not summarize, and do not alter the functional or semantic structure of the legal document. They only neutralize prompt-injection attempts.
 
 ---
 
