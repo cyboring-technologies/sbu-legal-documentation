@@ -277,6 +277,19 @@ Two primary button components manage call-to-action hierarchies, located in `src
 **Smart Chips:**
 Recent update ensures chips use `bg-background` to match hero section background in both light and dark modes, preventing grid pattern visibility through transparent chips.
 
+### Institutional Authority Signal
+A microcopy bridge between the Hero and the Features section, designed to project technical authority and legal-tech positioning.
+
+**Specifications:**
+- **Translation Key:** `branding.authoritySignal`
+- **Component:** Inline `div` with `font-mono` typography.
+- **Styling:** `text-xs tracking-widest uppercase text-muted-foreground`.
+- **Background:** `bg-muted/20` with a 1px bottom border.
+- **Localization:**
+    - **ES:** "Motor de Tecnología Legal"
+    - **EN:** "Legal Technology Engine"
+- **Purpose:** Contextual SEO density and cognitive framing of the system as an "engine".
+
 ### Header Component
 
 **Location:** `src/components/Header.tsx`
