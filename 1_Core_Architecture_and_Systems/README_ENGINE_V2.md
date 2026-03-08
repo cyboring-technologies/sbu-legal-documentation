@@ -3,7 +3,7 @@ id: "README_ENGINE_V2"
 title: "Engine V2 — Sovereign Continuous Engine"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-02-26"
+last_updated: "2026-03-07"
 status: "Approved"
 ---
 
@@ -64,6 +64,22 @@ establishes its own layout and providers,
 and remains mounted for the entire session.
 
 From this point onward, all user interaction occurs inside the Engine.
+
+### 3.1 Handover Invariants (One-Shot Handover)
+
+The transition from Landing to Engine complies with the **One-Shot Ephemeral Theme Handover Pattern**.
+
+*   **Theme Propagation**: Current UI theme (`light` | `dark`) is passed via `?theme=` query parameter.
+*   **Language Propagation**: Current UI locale is passed via `?lang=` query parameter.
+*   **Technical Neutrality**: The Engine must apply the received theme and language before the first meaningful paint to maintain perceptual continuity without persistent synchronization.
+
+### 3.2 Entry Routing Normalization (v2.1)
+
+To ensure deployment flexibility and technical sovereignty, the Engine router is **Path-Agnostic**.
+
+*   All endpoints (e.g., `/init`, `/upload`, `/execute`) are available both at the root `/` and under the `/engine/` prefix.
+*   The root entry point (`/`) and `/engine/` both serve the sovereign client UI.
+*   This allows the Landing Page to mount the Engine using a standardized `/engine/` path invariant regardless of the underlying CDN or worker routing configuration.
 
 4. Authority Model
 

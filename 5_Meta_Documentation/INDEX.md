@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-02-25"
+last_updated: "2026-03-07"
 status: "Approved"
 ---
 
@@ -16,8 +16,8 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 ## 1. Core Architecture & Systems (READMEs & Architecture)
 *Documents detailing the technical implementations, core components, and SSoT system configurations.*
 
-*   **README_ENGINE_V2.md**
     The core architectural document for the Engine. It defines the "One-Shot" invariant, stating that the engine mounts once, runs continuously, allows no retries, and incinerates all data upon completion or failure.
+    *   *Update (2026-03-07): Formalized the Routing Normalization (v2.1) making the Engine path-agnostic and the One-Shot Ephemeral Theme Handover Pattern for perceptual continuity.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
@@ -68,7 +68,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-07): Standardized Title and Meta Description patterns for SERP conversions (Action + Document + Time) and injected targeted JSON-LD Structured Data models (Service/FAQ/Article) associating the 'documentos.legal' product to 'Cyboring Technologies LLC'.*
     *   *Update (2026-03-07): Validated indexing manifest injection and the systematic application of a deterministic internal crawl graph (4 dynamic links sorted by slug to ensure hydration compatibility) appended as the penultimate structural block.*
     *   *Update (2026-03-07): Added global Legal Layout Footer to `AntiPage.tsx` as a layout element rendered **after** the CTA block — outside the block template. Contains static links to `/legal/terms` (Términos de Servicio) and `/legal/privacy` (Política de Privacidad), plus "Cyboring Technologies LLC" attribution. Documented in Section 3 and Section 6 of this contract. Block order, CTA invariant, and `antipages.json` remain unmodified.*
-    *   *Update (2026-03-07): Fixed critical static export errors by correcting `generateStaticParams` to include all 24 Tier-A slugs for both locales. Standardized internal navigation using localized `Link` components to prevent broken routing in the exported static site.*
+    *   *Update (2026-03-07): Fixed critical static export errors by correcting `generateStaticParams` to include all 24 Tier-A slugs for both locales. Standardized internal navigation using localized `Link` components to prevent broken routing in the exported static site. Fixed AntiPage CTA logic to ensure proper routing and theme/language handover to the engine.*
 
 ## 4. Business Strategy, Marketing & Economics
 *Documents defining the rules out in the market, launch numbers, and business propositions.*
