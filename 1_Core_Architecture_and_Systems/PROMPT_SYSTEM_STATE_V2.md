@@ -77,6 +77,14 @@ The envelope:
 
 This does **not** guarantee perfect isolation. It provides high‑probability structural containment.
 
+### 3.3 Pre-Prompt Sanitization Layer
+
+Before the source document is injected into the `<UNTRUSTED_SOURCE>` block, it passes through a strict sanitization layer (`sanitizeUntrustedSource`).
+
+- **Function:** Neutralizes explicit imperative control phrases (e.g., "ignore all previous instructions", "system prompt", "you are chatgpt").
+- **Mechanism:** Regex-based replacement stripping out the tactical phrases and marking them as `[REMOVED_INSTRUCTION]`.
+- **Constraint:** This is a strictly pre-prompt string manipulation. It does not use an LLM, does not summarize, and does not alter the factual or semantic structure of the legal document. It only neutralizes structural prompt-injection attempts.
+
 ---
 
 ## 4. Skeleton Enforcement Model

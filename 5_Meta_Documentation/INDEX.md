@@ -35,6 +35,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **PROMPT_SYSTEM_STATE_V2.md**
     Documents the prompt engineering architecture. It uses a "Strict Envelope" model to segregate system instructions from user content to ensure structural integrity and prevent prompt injection or "bleed-through."
+    *   *Update (2026-03-08): Added documentation for the Pre-Prompt Sanitization Layer (`sanitizeUntrustedSource`) which strips imperative control phrases from user documents before envelope assembly.*
 
 *   **PROMPT_HARDENING_PHASE_1.md**
     A technical addendum recording the prompt hardening updates made in Phase 1 to improve legal density, mandate a closed deductive syllogism (Fact → Rule → Subsumption → Consequence), and eliminate pedagogical fluff.
