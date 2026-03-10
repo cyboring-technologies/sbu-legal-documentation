@@ -41,6 +41,12 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **PROMPT_HARDENING_PHASE_1.md**
     A technical addendum recording the prompt hardening updates made in Phase 1 to improve legal density, mandate a closed deductive syllogism (Fact → Rule → Subsumption → Consequence), and eliminate pedagogical fluff.
 
+*   **ENVIRONMENT_VARIABLES_REGISTRY.md**
+    Centralizes the configuration registry of environment variables required for production and development deployments within the Cloudflare ecosystem.
+
+*   **CLOUDFLARE_DEPLOYMENT_ARCHITECTURE.md**
+    Details the serverless Cloudflare infrastructure, domain topology, and component deployment boundaries used by SBU-Legal.
+
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*
 
@@ -49,6 +55,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **PRICING_EXECUTION_MODEL.md**
     Details the technical implementation of the pricing logic (`Base + Page Count`) and the authority transition. It describes how the `CostManifest` is signed and how payment validates the issuance of a single-use execution token.
+
+*   **STRIPE_PAYMENT_FLOW.md**
+    Defines the operational Stripe payment flow, the Rubicon event, and execution token issuance rules for crossing the payment boundary.
 
 ## 3. UX, Branding & Visual Design
 *Documents governing the visual identity, end-to-end user experience, and aesthetic constraints.*
