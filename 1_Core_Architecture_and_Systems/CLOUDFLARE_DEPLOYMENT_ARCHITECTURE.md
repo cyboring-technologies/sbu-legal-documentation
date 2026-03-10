@@ -3,7 +3,7 @@ id: "CLOUDFLARE_DEPLOYMENT_ARCHITECTURE"
 title: "Cloudflare Deployment Architecture"
 type: "Core Architecture and Systems"
 version: "v1.0"
-last_updated: "2026-03-09"
+last_updated: "2026-03-10"
 status: "Approved"
 ---
 
@@ -265,6 +265,8 @@ Gateway is invoked only during the payment event.
 Reference architecture:
 
 See `README_GATEWAY_V2.md`.
+
+*Update (2026-03-10): Infrastructure finalized with `wrangler.toml` and verified through production deployment to `gateway.documentos.legal`. Confirmed environmental bindings for `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`.*
 
 ---
 

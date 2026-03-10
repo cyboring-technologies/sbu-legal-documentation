@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-03-07"
+last_updated: "2026-03-10"
 status: "Approved"
 ---
 
@@ -46,6 +46,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **CLOUDFLARE_DEPLOYMENT_ARCHITECTURE.md**
     Details the serverless Cloudflare infrastructure, domain topology, and component deployment boundaries used by SBU-Legal.
+    *   *Update (2026-03-10): Finalized Gateway Worker configuration and verified deployment status to `gateway.documentos.legal`.*
 
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*
@@ -58,6 +59,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **STRIPE_PAYMENT_FLOW.md**
     Defines the operational Stripe payment flow, the Rubicon event, and execution token issuance rules for crossing the payment boundary.
+    *   *Update (2026-03-10): Verified production readiness of Gateway secrets and integration bindings during March 10 deployment audit.*
 
 ## 3. UX, Branding & Visual Design
 *Documents governing the visual identity, end-to-end user experience, and aesthetic constraints.*
