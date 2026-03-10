@@ -21,6 +21,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-08): Documented the Dual-Layer Pre-Authority Structural Validation Gate blocking empty or unprocessable scanned uploads.*
     *   *Update (2026-03-08): Documented the UI2 Editable Procedure functionality, defining how the frontend dynamically maintains the selector ephemerally and processed atomically at the Rubicon without requiring persistent DO overrides.*
     *   *Update (2026-03-08): Implemented the Primary LLM Stabilization Layer using `gpt-4o` as primary and `gemini-2.0-flash` as sequential fallback, configuring timeouts and automatic internal retries that do not violate the One-Shot Execution contract. (Note: initially documented as GPT-5.3 / Gemini 3.1 Pro — corrected 2026-03-08 after those model IDs were confirmed non-existent by API 404 responses; production code updated accordingly.)*
+    *   *Update (2026-03-10): Successfully deployed Engine Worker to production at `engine.documentos.legal`. Configured and verified production secrets for OpenAI, Gemini, and Stripe.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
@@ -28,7 +29,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
     *   *Update (2026-03-07): Added `/sitemap` HTML utility page (static, lists all pages + 24 AntiPages) and `generate-rss.mjs` post-build script producing `out/rss.xml` (4 blog items, RSS 2.0 + Atom self-link). Added `postbuild` npm hook to `package.json`. Corrected HTML sitemap `robots` directive from `noindex` to default `index, follow`. All changes are within the Landing SEO scope and do not affect Engine, Gateway, or execution contracts.*
-
+    *   *Update (2026-03-10): Documented the `wrangler secret put` commands for production secrets: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `SESSION_SECRET`.*
 
 *   **METADATA_EXTRACTION_ARCHITECTURE_V2.md** *(Deprecated — 2026-02-25)*
     Archived. Described the regex-based structural extraction pipeline (`Stage3Extractor.js`, `/extract`, `/review_metadata`, SHA-256 freeze, `<TRUSTED_CONTEXT>` injection). Fully removed during the Sovereign LLM migration (2026-02-25). The LLM is now the sole interpreter of source content. Retained for historical reference only.
@@ -47,6 +48,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **CLOUDFLARE_DEPLOYMENT_ARCHITECTURE.md**
     Details the serverless Cloudflare infrastructure, domain topology, and component deployment boundaries used by SBU-Legal.
     *   *Update (2026-03-10): Finalized Gateway Worker configuration and verified deployment status to `gateway.documentos.legal`.*
+    *   *Update (2026-03-10): Finalized Engine Worker configuration and verified production deployment to `engine.documentos.legal`. Confirmed all Worker Routes and Durable Object bindings are operational.*
 
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*

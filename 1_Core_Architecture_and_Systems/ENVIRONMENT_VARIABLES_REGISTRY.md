@@ -94,10 +94,18 @@ Used by **Engine Worker**.
 
 | Variable | Description |
 |---|---|
-LLM_PRIMARY_API_KEY | API key for the primary LLM provider |
-LLM_FALLBACK_API_KEY | API key for fallback LLM provider |
+| OPENAI_API_KEY | API key for the primary LLM provider (OpenAI) |
+| GEMINI_API_KEY | API key for sequential fallback LLM provider (Google Gemini) |
 
 These keys authorize calls to the legal generation engine.
+
+# 5.1. Session Security
+
+Used by **Engine Worker**.
+
+| Variable | Description |
+|---|---|
+| SESSION_SECRET | Secret key used to sign and verify internal session tokens (X-Engine-Session) |
 
 ---
 
@@ -171,8 +179,9 @@ Example configuration using Wrangler:
 ```
 wrangler secret put STRIPE_SECRET_KEY
 wrangler secret put STRIPE_WEBHOOK_SECRET
-wrangler secret put LLM_PRIMARY_API_KEY
-wrangler secret put LLM_FALLBACK_API_KEY
+wrangler secret put OPENAI_API_KEY
+wrangler secret put GEMINI_API_KEY
+wrangler secret put SESSION_SECRET
 ```
 
 Non-secret variables may appear in:
@@ -229,10 +238,11 @@ Before deploying to production verify:
 
 ```
 Stripe keys configured
-LLM keys configured
-Worker origins correct
-Durable Object namespace bound
+LLM (OpenAI/Gemini) keys configured
+Worker origins (engine/gateway/landing) correct
+Durable Object namespace (COORDINATOR) bound
 Secrets injected via Wrangler
+X-Engine-Session security (SESSION_SECRET) active
 ```
 
 ---

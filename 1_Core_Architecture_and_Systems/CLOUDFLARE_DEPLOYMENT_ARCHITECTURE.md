@@ -193,6 +193,8 @@ Worker responsibilities:
 - Artifact generation
 - Session incineration
 
+*Update (2026-03-10): Engine Worker infrastructure finalized with `wrangler.toml` and successfully deployed to production. Domain `engine.documentos.legal` is correctly attached to the fetch handler.*
+
 ---
 
 # 7. Durable Objects
@@ -282,8 +284,9 @@ engine.documentos.legal/*
 ```
 
 ```
-gateway.documentos.legal/*
 → Gateway Worker
+
+*Update (2026-03-10): All worker routes confirmed active. Engine Worker correctly responds at `engine.documentos.legal/*` after successful production push.*
 ```
 
 Workers operate entirely at the edge.
