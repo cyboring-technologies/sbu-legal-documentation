@@ -3,7 +3,7 @@ id: "ENVIRONMENT_VARIABLES_REGISTRY"
 title: "Environment Variables Registry"
 type: "Core Architecture and Systems"
 version: "v1.0"
-last_updated: "2026-03-09"
+last_updated: "2026-03-10"
 status: "Approved"
 ---
 

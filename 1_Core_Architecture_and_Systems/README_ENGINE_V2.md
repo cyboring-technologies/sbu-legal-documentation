@@ -3,7 +3,7 @@ id: "README_ENGINE_V2"
 title: "Engine V2 — Sovereign Continuous Engine"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-03-07"
+last_updated: "2026-03-10"
 status: "Approved"
 ---
 
@@ -80,6 +80,13 @@ To ensure deployment flexibility and technical sovereignty, the Engine router is
 *   All endpoints (e.g., `/init`, `/upload`, `/execute`) are available both at the root `/` and under the `/engine/` prefix.
 *   The root entry point (`/`) and `/engine/` both serve the sovereign client UI.
 *   This allows the Landing Page to mount the Engine using a standardized `/engine/` path invariant regardless of the underlying CDN or worker routing configuration.
+
+### 3.3 Bootstrap Configuration & Origin Injection (v2.2)
+
+To ensure operational autonomy in production, the Engine dynamically resolves service origins from the Worker environment.
+
+*   **Canonical Registry**: The Engine utilizes `ENGINE_ORIGIN`, `GATEWAY_ORIGIN`, and `LANDING_ORIGIN` variables defined in the system registry.
+*   **Server-Side Injection**: The Worker fetch handler injects these origins directly into the client-side `appHtml` at runtime, eliminating hardcoded `localhost` references and ensuring correct connectivity to the Gateway and branding assets in any environment.
 
 4. Authority Model
 
