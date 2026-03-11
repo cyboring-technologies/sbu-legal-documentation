@@ -24,6 +24,8 @@ Engine V2 is a single, sovereign, continuous execution engine that governs the e
 
 The Engine is mounted once per session, runs inside a single uninterrupted runtime, and never hands execution to an alternate engine, surface, or context.
 
+*   *Update (2026-03-11): Investigated and corrected `STRIPE_PUBLISHABLE_KEY` environment misconfiguration, ensuring persistent secret injection via Wrangler for successful front-end initialized Stripe Elements.*
+
 There is no concept of “pre-engine” or “post-engine”.
 There is only one Engine, operating under different authority states.
 

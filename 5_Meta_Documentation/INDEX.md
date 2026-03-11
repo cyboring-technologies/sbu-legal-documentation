@@ -24,6 +24,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-10): Successfully deployed Engine Worker to production at `engine.documentos.legal`. Configured and verified production secrets for OpenAI, Gemini, and Stripe.*
     *   *Update (2026-03-10): Implemented Bootstrap Configuration & Origin Injection (v2.2), resolving a critical initialization failure by dynamically injecting service origins (Gateway/Landing) from the Worker environment into the frontend, eliminating hardcoded local development URLs.*
     *   *Update (2026-03-11): Added safe HTTP HEAD support to the Engine Worker to fulfill infrastructure health checks and crawler probes without triggering execution or DO state.*
+    *   *Update (2026-03-11): Investigated and corrected `STRIPE_PUBLISHABLE_KEY` environment misconfiguration, ensuring persistent secret injection via Wrangler for successful front-end initialized Stripe Elements.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
