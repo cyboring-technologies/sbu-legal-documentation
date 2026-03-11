@@ -101,11 +101,11 @@ These keys authorize calls to the legal generation engine.
 
 # 5.1. Session Security
 
-Used by **Engine Worker**.
+Used by **Engine Worker** and **Gateway Worker**.
 
 | Variable | Description |
 |---|---|
-| SESSION_SECRET | Secret key used to sign and verify internal session tokens (X-Engine-Session) |
+| SESSION_SECRET | Secret key used to sign and verify internal session tokens (X-Engine-Session) and Gateway Execution Tokens |
 
 ---
 

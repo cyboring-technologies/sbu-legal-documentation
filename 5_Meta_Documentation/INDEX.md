@@ -27,6 +27,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
+    *   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence before execution and implemented dynamic CORS validation supporting `Authorization` headers for Stripe Elements compatibility.*
 
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
@@ -51,6 +52,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     Details the serverless Cloudflare infrastructure, domain topology, and component deployment boundaries used by SBU-Legal.
     *   *Update (2026-03-10): Finalized Gateway Worker configuration and verified deployment status to `gateway.documentos.legal`.*
     *   *Update (2026-03-10): Finalized Engine Worker configuration and verified production deployment to `engine.documentos.legal`. Confirmed all Worker Routes and Durable Object bindings are operational.*
+    *   *Update (2026-03-11): Documented manual `CNAME` to `workers.dev` requirement for Gateway DNS routing, replacing assumed auto-provisioning.*
 
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*

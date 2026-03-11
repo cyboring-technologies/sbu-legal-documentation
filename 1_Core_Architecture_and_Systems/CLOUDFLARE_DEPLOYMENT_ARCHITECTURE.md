@@ -269,12 +269,15 @@ Reference architecture:
 See `README_GATEWAY_V2.md`.
 
 *Update (2026-03-10): Infrastructure finalized with `wrangler.toml` and verified through production deployment to `gateway.documentos.legal`. Confirmed environmental bindings for `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`.*
+*Update (2026-03-11): Confirmed DNS routing requires manual `CNAME` pointing to `<account-subdomain>.workers.dev` via Cloudflare Dashboard to resolve. Wrangler `routes` is used for pattern matching internal to Cloudflare but does not auto-provision DNS for Gateway.*
 
 ---
 
 # 9. Worker Routes
 
 Workers are attached using Cloudflare routes.
+
+**CRITICAL NOTE FOR GATEWAY:** The Gateway requires a manual `CNAME` record in the Cloudflare Dashboard pointing `gateway` to the `sbu-legal-gateway.<account-subdomain>.workers.dev` target with Proxy (Orange Cloud) enabled to resolve globally.
 
 Example:
 
