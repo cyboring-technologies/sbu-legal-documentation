@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-03-10"
+last_updated: "2026-03-11"
 status: "Approved"
 ---
 
@@ -23,6 +23,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-08): Implemented the Primary LLM Stabilization Layer using `gpt-4o` as primary and `gemini-2.0-flash` as sequential fallback, configuring timeouts and automatic internal retries that do not violate the One-Shot Execution contract. (Note: initially documented as GPT-5.3 / Gemini 3.1 Pro — corrected 2026-03-08 after those model IDs were confirmed non-existent by API 404 responses; production code updated accordingly.)*
     *   *Update (2026-03-10): Successfully deployed Engine Worker to production at `engine.documentos.legal`. Configured and verified production secrets for OpenAI, Gemini, and Stripe.*
     *   *Update (2026-03-10): Implemented Bootstrap Configuration & Origin Injection (v2.2), resolving a critical initialization failure by dynamically injecting service origins (Gateway/Landing) from the Worker environment into the frontend, eliminating hardcoded local development URLs.*
+    *   *Update (2026-03-11): Added safe HTTP HEAD support to the Engine Worker to fulfill infrastructure health checks and crawler probes without triggering execution or DO state.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.

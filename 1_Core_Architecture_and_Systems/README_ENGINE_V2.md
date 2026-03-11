@@ -3,7 +3,7 @@ id: "README_ENGINE_V2"
 title: "Engine V2 — Sovereign Continuous Engine"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-03-10"
+last_updated: "2026-03-11"
 status: "Approved"
 ---
 
@@ -87,6 +87,10 @@ To ensure operational autonomy in production, the Engine dynamically resolves se
 
 *   **Canonical Registry**: The Engine utilizes `ENGINE_ORIGIN`, `GATEWAY_ORIGIN`, and `LANDING_ORIGIN` variables defined in the system registry.
 *   **Server-Side Injection**: The Worker fetch handler injects these origins directly into the client-side `appHtml` at runtime, eliminating hardcoded `localhost` references and ensuring correct connectivity to the Gateway and branding assets in any environment.
+
+### 3.4 Infrastructure Health & Crawler Support
+
+*   **Safe HEAD Interception**: The Engine supports lightweight `HEAD` requests at the apex `index.js` fetch handler. This safely returns an HTTP 200 response without triggering UI assembly or Durable Object bootstrapping, fulfilling infrastructure health checks and crawler probes without violating the single-execution or incineration invariants.
 
 4. Authority Model
 
