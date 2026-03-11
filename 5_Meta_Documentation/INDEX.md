@@ -30,6 +30,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
     *   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence before execution and implemented dynamic CORS validation supporting `Authorization` headers for Stripe Elements compatibility.*
+    *   *Update (2026-03-11): Finalized production deployment to `gateway.documentos.legal`, injecting `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` via Wrangler, and verified active intercept of the Stripe webhook endpoint (`/webhook`).*
 
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
