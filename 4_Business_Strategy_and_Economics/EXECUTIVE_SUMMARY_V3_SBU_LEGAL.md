@@ -2,8 +2,8 @@
 id: "EXECUTIVE_SUMMARY_V3"
 title: "Operational Executive Summary"
 type: "Business Strategy, Marketing & Economics"
-version: "v3.2"
-last_updated: "2026-03-07"
+version: "v3.3"
+last_updated: "2026-03-11"
 status: "Approved"
 ---
 
@@ -18,7 +18,7 @@ status: "Approved"
 * **SBU Name:** SBU-Legal
 * **Domain:** documentos.legal
 * **Type:** Replicable Engine / Intellectual Asset
-* **Current Status:** Live / Monetizing
+* **Current Status:** In Production (Live / Monetizing)
 * **Current Priority:** High
 
 ---
@@ -167,11 +167,11 @@ This configuration produces a low fixed-cost base, high gross margin (>90%), and
 
 ## 9. Current State
 
-* **Phase:** Launch / Aggressive Validation.
+* **Phase:** Production (Live) / Aggressive Validation.
 * **Operational Horizon:** March 2026 (Month 0) to December 2026 (Month 9).
 * **Bottleneck:** Indexation velocity and validation of specific transactional SEO inventory queries.
 * **Driver:** Proving the fundamental math without a retention strategy.
-* **Status Details:** Fully SEO-ready. Active inventory consists of 24 transactional pages mapping 8 specific legal services for 1 jurisdiction. Execution relies on the active SEO pipeline. As of 2026-03-07, the SEO architecture includes: JSON-LD structured data, Open Graph/Twitter metadata, RSS feed, HTML sitemap, last-modified timestamps, canonical domain enforcement, randomized internal crawl graph per AntiPage, corrected SERP title pattern (Action + Document + Time, Spanish), and authority microcopy in the homepage viewport.
+* **Status Details:** The system is fully deployed to production as of March 10-11, 2026. The `documentos.legal` domain (Landing), `gateway.documentos.legal` (Stripe Authority Switch), and `engine.documentos.legal` (V2 Sovereign Engine) are live, bound to custom domains, and communicating via injected origins and webhook-driven token issuance. SEO infrastructure is active (24 AntiPages, sitemaps, RSS, JSON-LD). The engine has been hardened with structural pre-prompt validation, dual-LLM fallback (GPT-4o/Gemini 2.0 Flash), and infrastructure health endpoint support (HEAD). Focus is entirely on traffic acquisition and conversion measurement.
 
 ---
 
