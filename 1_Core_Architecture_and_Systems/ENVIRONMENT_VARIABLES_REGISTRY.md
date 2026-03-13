@@ -2,14 +2,17 @@
 id: "ENVIRONMENT_VARIABLES_REGISTRY"
 title: "Environment Variables Registry"
 type: "Core Architecture and Systems"
-version: "v1.0"
-last_updated: "2026-03-10"
+version: "v1.1"
+last_updated: "2026-03-12"
 status: "Approved"
 ---
 
 # Environment Variables Registry
 
 **Context:** *This document centralizes the configuration registry of environment variables required for production and development deployments within the Cloudflare ecosystem.*
+
+> [!NOTE]
+> **Audit Status (2026-03-12):** OpenAI API configuration was verified via remote execution. Confirmed production key (suffix `eL6PQA`) is active. Account requires credit refill (429 verified).
 
 ---
 
