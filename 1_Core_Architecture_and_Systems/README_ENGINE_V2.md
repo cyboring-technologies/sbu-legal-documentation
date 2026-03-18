@@ -27,6 +27,7 @@ The Engine is mounted once per session, runs inside a single uninterrupted runti
 *   *Update (2026-03-11): Investigated and corrected `STRIPE_PUBLISHABLE_KEY` environment misconfiguration, ensuring persistent secret injection via Wrangler for successful front-end initialized Stripe Elements.*
 *   *Update (2026-03-11): Fixed post-incineration 404 error by enforcing `LANDING_ORIGIN` template literal redirection, ensuring the execution cleanly hands over to the Landing domain upon incineration.*
 *   *Update (2026-03-18): Reached final production-ready state. Removed all `[DEBUG]` logs and enforced strict Stripe environment immutability via `shared/stripeConfig.js`, ensuring isolated, non-overridable, and fail-fast configuration across all local and worker runtimes.*
+*   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on >128KB uploads by removing `formData` parsing. Files now stream directly from the request body to Cloudflare R2. Durable Objects store only the `objectKey` and `extractedText` metadata. All file bytes are explicitly deleted from R2 during incineration paths.*
 
 There is no concept of “pre-engine” or “post-engine”.
 There is only one Engine, operating under different authority states.
@@ -106,9 +107,11 @@ This is the default initial state.
 
 In this state, the Engine MAY:
 
-Accept document uploads, protected by a **Dual-Layer Structural Validation Gate** (frontend word/char count and backend buffer scanning) that rejects empty or unprocessable scanned documents before generating a Cost Manifest.
+Accept document uploads via **R2 Streaming Ingestion**. The Worker no longer parses `formData` or buffers the file; the request body is piped directly to Cloudflare R2.
+    -   **Size Gate:** Authoritative 10MB limit enforced via R2 metadata after upload completes.
+    -   **Dual-Layer Structural Validation Gate:** The file is read back from R2 into a temporary Worker buffer ONLY for structural integrity checks (`pdf-lib` page count / DOCX corruption check) before generating a Cost Manifest.
 
-Render document preview.
+Render document preview by reading directly from R2 using the session's `objectKey`.
 
 Allow modification of the initially selected legal procedure via an inline selector. This change is fully ephemeral, persisting only in the client DOM, and is synchronously extracted and injected into the `/execute_after_payment` payload immediately prior to the Rubicon crossing.
 
@@ -192,7 +195,7 @@ No document or draft is persisted to:
 
 databases,
 
-object storage,
+object storage (EXCEPT for the strictly ephemeral R2 upload buffer, which is metadata-linked to the session and explicitly incinerated),
 
 logs,
 
@@ -207,6 +210,8 @@ Termination occurs immediately after final approval and download, or upon explic
 Termination sequence:
 
 All in-memory state is destroyed.
+
+The R2 object (source file) is explicitly deleted from the `FILE_BUCKET`.
 
 Execution token is invalidated.
 

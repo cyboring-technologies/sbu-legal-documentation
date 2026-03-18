@@ -28,6 +28,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-11): Fixed a post-incineration 404 routing error by replacing the relative redirect path with a strictly governed `LANDING_ORIGIN` template literal to ensure users are safely returned to the landing domain.*
     *   *Update (2026-03-12): Performed OpenAI API account identity audit. Confirmed production key (suffix `eL6PQA`) is active and authorized for 105 models, but currently limited by account credits (429 status verified).*
     *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs. Enforced strict Stripe environment immutability via `shared/stripeConfig.js` and confirmed `SESSION_SECRET` consistency across runtimes.*
+    *   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on large uploads by removing `formData` parsing. Files are now streamed directly to R2; Durable Objects store only session metadata (`objectKey`, `extractedText`). Enforced strict incineration of R2 objects upon session completion or failure.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
