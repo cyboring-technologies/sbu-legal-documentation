@@ -74,14 +74,21 @@ or Cloudflare dashboard settings.
 
 # 4. Stripe Configuration
 
-Used by **Gateway Worker** and **Engine Worker**. `STRIPE_ENV_MODE` strictly dictates which set of keys are loaded by `getStripeConfig(env)`. There is no fallback.
+Used by **Gateway Worker** and **Engine Worker**. `STRIPE_ENV_MODE` strictly dictates which set of keys are loaded by `getStripeConfig(env)`. The environment model is immutable and cannot be dynamically changed.
 
 | Variable | Description |
 |---|---|
-| STRIPE_ENV_MODE | Mandatory toggle. Must be strictly `"test"` or `"production"`. |
+| STRIPE_ENV_MODE | Immutable single source of truth. Must be strictly `"test"` (in `.dev.vars`) or `"production"` (in `wrangler.toml` / secrets). |
 | STRIPE_SECRET_KEY_LIVE / _TEST | Stripe secret API key used to create and capture PaymentIntents |
 | STRIPE_PUBLISHABLE_KEY_LIVE / _TEST | Public Stripe key used by the frontend payment form |
 | STRIPE_WEBHOOK_SECRET_LIVE / _TEST | Secret used to validate Stripe webhook signatures |
+
+**Fail-Fast Invariants:**
+- Missing `STRIPE_ENV_MODE` causes a fatal crash.
+- `STRIPE_ENV_MODE="test"` strictly forbids any `_LIVE` key presence.
+- `STRIPE_ENV_MODE="production"` strictly forbids any `_TEST` key presence.
+- Mixed keys or missing required keys trigger a fatal crash.
+- Each runtime validates its environment independently.
 
 Example environment scope:
 
