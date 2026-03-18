@@ -356,26 +356,28 @@ The architecture deliberately avoids internal persistence.
 
 # 13. Deployment Workflow
 
-Deployment occurs independently per component.
+Deployment occurs independently per component. There is **no global CI/CD pipeline** (like GitHub Actions) configured for the backend workers by design.
 
 Landing:
 
 ```
-Git push → Cloudflare Pages deploy
+Git push → Cloudflare Pages auto-deploy
 ```
+*(Cloudflare natively intercepts the GitHub push to deploy the static site.)*
 
-Workers:
+Workers (Engine & Gateway):
 
 ```
-wrangler publish
+wrangler deploy
 ```
+*(Workers MUST be pushed manually from the local development machine using the Wrangler CLI. A `git push` to GitHub will NOT update the production Cloudflare Workers.)*
 
 Typical sequence:
 
 ```
-1 Deploy Engine Worker
-2 Deploy Gateway Worker
-3 Deploy Landing Pages
+1 Deploy Engine Worker (`npx wrangler deploy`)
+2 Deploy Gateway Worker (`npx wrangler deploy`)
+3 Deploy Landing Pages (`git push`)
 ```
 
 ---

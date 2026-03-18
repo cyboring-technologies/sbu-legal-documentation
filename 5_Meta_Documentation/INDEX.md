@@ -60,6 +60,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-10): Finalized Gateway Worker configuration and verified deployment status to `gateway.documentos.legal`.*
     *   *Update (2026-03-10): Finalized Engine Worker configuration and verified production deployment to `engine.documentos.legal`. Confirmed all Worker Routes and Durable Object bindings are operational.*
     *   *Update (2026-03-11): Documented manual `CNAME` to `workers.dev` requirement for Gateway DNS routing, replacing assumed auto-provisioning.*
+    *   *Update (2026-03-18): Clarified Section 13 Deployment Workflow to explicitly state that Cloudflare Workers are deployed strictly via manual local `wrangler deploy` execution, while the Landing page utilizes native Cloudflare Pages Git integration. No GitHub Actions CI/CD pipelines are utilized.*
 
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*
