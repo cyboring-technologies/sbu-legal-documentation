@@ -3,13 +3,15 @@ id: "STRIPE_PAYMENT_FLOW"
 title: "Stripe Payment Flow Architecture"
 type: "Execution Principles and Token Models"
 version: "v1.0"
-last_updated: "2026-03-10"
+last_updated: "2026-03-18"
 status: "Approved"
 ---
 
 # Stripe Payment Flow Architecture
 
 **Context:** *This document defines the operational Stripe payment flow, the Rubicon event, and execution token issuance rules for crossing the payment boundary.*
+
+*   *Update (2026-03-18): Verified the end-to-end fail-fast behavior with final code; confirmed that incorrect or missing environment configurations now block execution instantly without falling back to insecure defaults.*
 
 ---
 

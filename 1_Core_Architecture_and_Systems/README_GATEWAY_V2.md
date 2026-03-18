@@ -3,13 +3,16 @@ id: "README_GATEWAY_V2"
 title: "Gateway V2 — Post-Payment Authority Switch"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-02-19"
+last_updated: "2026-03-18"
 status: "Approved"
 ---
 
 # Gateway V2 — Post-Payment Authority Switch
 
 **Context:** *Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token.*
+
+*   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence; finalized production deployment to `gateway.documentos.legal`.*
+*   *Update (2026-03-18): Simplified Stripe configuration by removing legacy fallback logic; enforced strict environment-based key loading (`STRIPE_ENV_MODE`) and aligned `SESSION_SECRET` for final system validation.*
 
 STATUS: NORMATIVE
 ROLE: Authority Validation · Irreversibility Guard

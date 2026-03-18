@@ -3,7 +3,7 @@ id: "README_ENGINE_V2"
 title: "Engine V2 — Sovereign Continuous Engine"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-03-11"
+last_updated: "2026-03-18"
 status: "Approved"
 ---
 
@@ -26,6 +26,7 @@ The Engine is mounted once per session, runs inside a single uninterrupted runti
 
 *   *Update (2026-03-11): Investigated and corrected `STRIPE_PUBLISHABLE_KEY` environment misconfiguration, ensuring persistent secret injection via Wrangler for successful front-end initialized Stripe Elements.*
 *   *Update (2026-03-11): Fixed post-incineration 404 error by enforcing `LANDING_ORIGIN` template literal redirection, ensuring the execution cleanly hands over to the Landing domain upon incineration.*
+*   *Update (2026-03-18): Confirmed `SESSION_SECRET` consistency across all .dev.vars and test suites; removed all `[DEBUG]` logs and instrumentation to reach the final production-ready state.*
 
 There is no concept of “pre-engine” or “post-engine”.
 There is only one Engine, operating under different authority states.

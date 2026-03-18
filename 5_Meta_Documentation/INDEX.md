@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-03-11"
+last_updated: "2026-03-18"
 status: "Approved"
 ---
 
@@ -27,11 +27,13 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-11): Investigated and corrected `STRIPE_PUBLISHABLE_KEY` environment misconfiguration, ensuring persistent secret injection via Wrangler for successful front-end initialized Stripe Elements.*
     *   *Update (2026-03-11): Fixed a post-incineration 404 routing error by replacing the relative redirect path with a strictly governed `LANDING_ORIGIN` template literal to ensure users are safely returned to the landing domain.*
     *   *Update (2026-03-12): Performed OpenAI API account identity audit. Confirmed production key (suffix `eL6PQA`) is active and authorized for 105 models, but currently limited by account credits (429 status verified).*
+    *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs and instrumentation. Confirmed `SESSION_SECRET` consistency across Engine and Gateway .dev.vars to ensure seamless authority handover.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
     *   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence before execution and implemented dynamic CORS validation supporting `Authorization` headers for Stripe Elements compatibility.*
     *   *Update (2026-03-11): Finalized production deployment to `gateway.documentos.legal`, injecting `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` via Wrangler, and verified active intercept of the Stripe webhook endpoint (`/webhook`).*
+    *   *Update (2026-03-18): Removed legacy fallback logic from `shared/stripeConfig.js`, enforcing strict fail-fast behavior. Aligned local `SESSION_SECRET` and `STRIPE_ENV_MODE` for end-to-end validation.*
 
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
@@ -51,6 +53,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 
 *   **ENVIRONMENT_VARIABLES_REGISTRY.md**
     Centralizes the configuration registry of environment variables required for production and development deployments within the Cloudflare ecosystem.
+    *   *Update (2026-03-18): Executed Phase 9 Hard Cut. Purged all legacy Stripe configuration variables from the codebase and meta docs, strictly enforcing the environment-specific keys (`_TEST` / `_LIVE`) and the `STRIPE_ENV_MODE` deterministic paths.*
 
 *   **CLOUDFLARE_DEPLOYMENT_ARCHITECTURE.md**
     Details the serverless Cloudflare infrastructure, domain topology, and component deployment boundaries used by SBU-Legal.
@@ -70,6 +73,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **STRIPE_PAYMENT_FLOW.md**
     Defines the operational Stripe payment flow, the Rubicon event, and execution token issuance rules for crossing the payment boundary.
     *   *Update (2026-03-10): Verified production readiness of Gateway secrets and integration bindings during March 10 deployment audit.*
+    *   *Update (2026-03-18): Re-verified full validation flow with final code; confirmed fail-fast mechanisms effectively block execution upon invalid payment states without falling back to legacy defaults.*
 
 ## 3. UX, Branding & Visual Design
 *Documents governing the visual identity, end-to-end user experience, and aesthetic constraints.*

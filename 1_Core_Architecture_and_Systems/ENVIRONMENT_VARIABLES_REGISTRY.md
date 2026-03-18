@@ -3,7 +3,7 @@ id: "ENVIRONMENT_VARIABLES_REGISTRY"
 title: "Environment Variables Registry"
 type: "Core Architecture and Systems"
 version: "v1.1"
-last_updated: "2026-03-12"
+last_updated: "2026-03-18"
 status: "Approved"
 ---
 
@@ -12,7 +12,7 @@ status: "Approved"
 **Context:** *This document centralizes the configuration registry of environment variables required for production and development deployments within the Cloudflare ecosystem.*
 
 > [!NOTE]
-> **Audit Status (2026-03-12):** OpenAI API configuration was verified via remote execution. Confirmed production key (suffix `eL6PQA`) is active. Account requires credit refill (429 verified).
+> **Audit Status (2026-03-18):** Confirmed `SESSION_SECRET` consistency across all .dev.vars. Verified `STRIPE_ENV_MODE` fail-fast behavior; removal of legacy fallback code ensures that incorrect configurations block execution immediately.
 
 ---
 
@@ -74,13 +74,14 @@ or Cloudflare dashboard settings.
 
 # 4. Stripe Configuration
 
-Used by **Gateway Worker** and **Engine Worker**.
+Used by **Gateway Worker** and **Engine Worker**. `STRIPE_ENV_MODE` strictly dictates which set of keys are loaded by `getStripeConfig(env)`. There is no fallback.
 
 | Variable | Description |
 |---|---|
-STRIPE_SECRET_KEY | Stripe secret API key used to create and capture PaymentIntents |
-STRIPE_PUBLISHABLE_KEY | Public Stripe key used by the frontend payment form |
-STRIPE_WEBHOOK_SECRET | Secret used to validate Stripe webhook signatures |
+| STRIPE_ENV_MODE | Mandatory toggle. Must be strictly `"test"` or `"production"`. |
+| STRIPE_SECRET_KEY_LIVE / _TEST | Stripe secret API key used to create and capture PaymentIntents |
+| STRIPE_PUBLISHABLE_KEY_LIVE / _TEST | Public Stripe key used by the frontend payment form |
+| STRIPE_WEBHOOK_SECRET_LIVE / _TEST | Secret used to validate Stripe webhook signatures |
 
 Example environment scope:
 
@@ -175,13 +176,13 @@ Production must use:
 
 ---
 
-# 10. Worker Configuration Example
+10. Worker Configuration Example
 
 Example configuration using Wrangler:
 
 ```
-wrangler secret put STRIPE_SECRET_KEY
-wrangler secret put STRIPE_WEBHOOK_SECRET
+wrangler secret put STRIPE_SECRET_KEY_LIVE
+wrangler secret put STRIPE_WEBHOOK_SECRET_LIVE
 wrangler secret put OPENAI_API_KEY
 wrangler secret put GEMINI_API_KEY
 wrangler secret put SESSION_SECRET
