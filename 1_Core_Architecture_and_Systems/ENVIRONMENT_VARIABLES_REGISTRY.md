@@ -12,7 +12,7 @@ status: "Approved"
 **Context:** *This document centralizes the configuration registry of environment variables required for production and development deployments within the Cloudflare ecosystem.*
 
 > [!NOTE]
-> **Audit Status (2026-03-18):** Confirmed `SESSION_SECRET` consistency across all .dev.vars. Verified `STRIPE_ENV_MODE` fail-fast behavior; removal of legacy fallback code ensures that incorrect configurations block execution immediately.
+> **Audit Status (2026-03-18):** Confirmed `SESSION_SECRET` consistency across all .dev.vars. Verified `STRIPE_ENV_MODE` fail-fast behavior; removal of legacy fallback code ensures that incorrect configurations block execution immediately. For detailed instructions on local initialization, see [LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md](file:///c:/Cyboring_Global/5_Ventures/sbu-legal/Documentation/1_Core_Architecture_and_Systems/LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md).
 
 ---
 

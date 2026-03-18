@@ -62,6 +62,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-11): Documented manual `CNAME` to `workers.dev` requirement for Gateway DNS routing, replacing assumed auto-provisioning.*
     *   *Update (2026-03-18): Clarified Section 13 Deployment Workflow to explicitly state that Cloudflare Workers are deployed strictly via manual local `wrangler deploy` execution, while the Landing page utilizes native Cloudflare Pages Git integration. No GitHub Actions CI/CD pipelines are utilized.*
 
+*   **LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md**
+    Operational guide for initializing and running the SBU-Legal services locally. It defines the component directory structure, port mappings (3000/8787/8788), startup procedures, and Stripe CLI authentication workflow for developers.
+
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*
 
