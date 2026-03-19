@@ -27,14 +27,14 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-11): Investigated and corrected `STRIPE_PUBLISHABLE_KEY` environment misconfiguration, ensuring persistent secret injection via Wrangler for successful front-end initialized Stripe Elements.*
     *   *Update (2026-03-11): Fixed a post-incineration 404 routing error by replacing the relative redirect path with a strictly governed `LANDING_ORIGIN` template literal to ensure users are safely returned to the landing domain.*
     *   *Update (2026-03-12): Performed OpenAI API account identity audit. Confirmed production key (suffix `eL6PQA`) is active and authorized for 105 models, but currently limited by account credits (429 status verified).*
-    *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs. Enforced strict Stripe environment immutability via `shared/stripeConfig.js` and confirmed `SESSION_SECRET` consistency across runtimes.*
+    *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs. Enforced strict Stripe environment immutability via `stripe-infrastructure/shared/stripeConfig.js` and confirmed `SESSION_SECRET` consistency across runtimes.*
     *   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on large uploads by removing `formData` parsing. Files are now streamed directly to R2; Durable Objects store only session metadata (`objectKey`, `extractedText`). Enforced strict incineration of R2 objects upon session completion or failure.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
     *   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence before execution and implemented dynamic CORS validation supporting `Authorization` headers for Stripe Elements compatibility.*
     *   *Update (2026-03-11): Finalized production deployment to `gateway.documentos.legal`, injecting `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` via Wrangler, and verified active intercept of the Stripe webhook endpoint (`/webhook`).*
-    *   *Update (2026-03-18): Implemented strict environment immutability. Isolated Gateway Node runtime from `process.env` by explicit `.dev.vars` parsing and enforced single-source-of-truth `env` pattern in `shared/stripeConfig.js`.*
+    *   *Update (2026-03-18): Implemented strict environment immutability. Isolated Gateway Node runtime from `process.env` by explicit `.dev.vars` parsing and enforced single-source-of-truth `env` pattern in `stripe-infrastructure/shared/stripeConfig.js`.*
 
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
@@ -64,7 +64,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-18): Clarified Section 13 Deployment Workflow to explicitly state that Cloudflare Workers are deployed strictly via manual local `wrangler deploy` execution, while the Landing page utilizes native Cloudflare Pages Git integration. No GitHub Actions CI/CD pipelines are utilized.*
 
 *   **LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md**
-    Operational guide for initializing and running the SBU-Legal services locally. It defines the component directory structure, port mappings (3000/8787/8788), startup procedures, and Stripe CLI authentication workflow for developers.
+    Operational guide for initializing and running the SBU-Legal services locally. It defines the component directory structure, port mappings (3000/8787/8788), startup procedures, and Stripe CLI authentication workflow for developers using the binary located in `stripe-infrastructure/`.
 
 ## 2. Execution Principles & Token Models
 *Documents that explicitly govern how the product is run, priced, and triggered upon payment.*

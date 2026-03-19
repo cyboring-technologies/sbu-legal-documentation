@@ -22,7 +22,7 @@ To simulate the Cloudflare serverless environment locally, the system is split i
 | **Landing** | `sbu-legal-landing` | `http://localhost:3000` | Next.js (Node) |
 | **Gateway** | `sbu-legal-gateway` | `http://localhost:8787` | Node.js (Server Wrapper) |
 | **Engine** | `sbu-legal-engine` | `http://localhost:8788` | Wrangler (Miniflare) |
-| **Stripe CLI** | Project Root | `localhost:8787/webhook` | Binary (Go/Stripe) |
+| **Stripe CLI** | `stripe-infrastructure/` | `localhost:8787/webhook` | Binary (Go/Stripe) |
 
 ---
 
@@ -50,10 +50,10 @@ Open four separate terminal instances to start the full environment.
 The Stripe CLI must be authenticated and configured to forward webhooks to the Gateway.
 ```powershell
 # Authenticate (One-time or after 90 days)
-./stripe.exe login
+./stripe-infrastructure/stripe.exe login
 
 # Start Listener
-./stripe.exe listen --forward-to localhost:8787/webhook
+./stripe-infrastructure/stripe.exe listen --forward-to localhost:8787/webhook
 ```
 
 ### Step 2: Marketing Landing
@@ -84,4 +84,4 @@ node server.mjs
 1.  **Gateway Entry Point**: All Stripe webhooks **must** target the Gateway (Port 8787). The Gateway performs signature verification before internal propagation.
 2.  **Engine Isolation**: The Engine (Port 8788) should not be accessed directly by the Stripe CLI or the public unless proxied.
 3.  **Key Consistency**: `SESSION_SECRET` must be identical across all `.dev.vars` files to ensure JWT tokens issued by the Gateway are accepted by the Engine.
-4.  **Local Binary**: The `stripe.exe` binary should be maintained in the project root for consistent access without requiring global PATH modifications.
+4.  **Local Binary**: The `stripe.exe` binary should be maintained in the `stripe-infrastructure/` directory for consistent access without requiring global PATH modifications.
