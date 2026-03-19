@@ -29,17 +29,20 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-12): Performed OpenAI API account identity audit. Confirmed production key (suffix `eL6PQA`) is active and authorized for 105 models, but currently limited by account credits (429 status verified).*
     *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs. Enforced strict Stripe environment immutability via `stripe-infrastructure/shared/stripeConfig.js` and confirmed `SESSION_SECRET` consistency across runtimes.*
     *   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on large uploads by removing `formData` parsing. Files are now streamed directly to R2; Durable Objects store only session metadata (`objectKey`, `extractedText`). Enforced strict incineration of R2 objects upon session completion or failure.*
+    *   *Update (2026-03-19): Hardened local development environment. Resolved HTTP 431 errors by limiting `X-Extracted-Text` header to 8KB. Centralized Stripe CLI to `C:\Tools\Stripe` and established system-wide PATH access. Fixed critical cross-origin (CORS) failures by injecting deterministic local origins (`localhost`) into `.dev.vars` and `.env.local`.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
     *   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence before execution and implemented dynamic CORS validation supporting `Authorization` headers for Stripe Elements compatibility.*
     *   *Update (2026-03-11): Finalized production deployment to `gateway.documentos.legal`, injecting `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` via Wrangler, and verified active intercept of the Stripe webhook endpoint (`/webhook`).*
     *   *Update (2026-03-18): Implemented strict environment immutability. Isolated Gateway Node runtime from `process.env` by explicit `.dev.vars` parsing and enforced single-source-of-truth `env` pattern in `stripe-infrastructure/shared/stripeConfig.js`.*
+    *   *Update (2026-03-19): Verified local Gateway connectivity via `http://localhost:8787` and synchronized shared Stripe logic imports to the centralized `stripe-infrastructure` project folder.*
 
 *   **README_LANDING.md**
     Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.
     *   *Update (2026-03-07): Added `/sitemap` HTML utility page (static, lists all pages + 24 AntiPages) and `generate-rss.mjs` post-build script producing `out/rss.xml` (4 blog items, RSS 2.0 + Atom self-link). Added `postbuild` npm hook to `package.json`. Corrected HTML sitemap `robots` directive from `noindex` to default `index, follow`. All changes are within the Landing SEO scope and do not affect Engine, Gateway, or execution contracts.*
     *   *Update (2026-03-10): Documented the `wrangler secret put` commands for production secrets: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `SESSION_SECRET`.*
+    *   *Update (2026-03-19): Synchronized environment variable naming. Added `NEXT_PUBLIC_ENGINE_ORIGIN` to `.env.local` to resolve hardcoded production fallbacks and ensure perceptual continuity during local transitions to the Engine.*
 
 *   **METADATA_EXTRACTION_ARCHITECTURE_V2.md** *(Deprecated — 2026-02-25)*
     Archived. Described the regex-based structural extraction pipeline (`Stage3Extractor.js`, `/extract`, `/review_metadata`, SHA-256 freeze, `<TRUSTED_CONTEXT>` injection). Fully removed during the Sovereign LLM migration (2026-02-25). The LLM is now the sole interpreter of source content. Retained for historical reference only.

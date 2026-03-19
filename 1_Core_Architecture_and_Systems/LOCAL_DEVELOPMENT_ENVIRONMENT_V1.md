@@ -22,7 +22,7 @@ To simulate the Cloudflare serverless environment locally, the system is split i
 | **Landing** | `sbu-legal-landing` | `http://localhost:3000` | Next.js (Node) |
 | **Gateway** | `sbu-legal-gateway` | `http://localhost:8787` | Node.js (Server Wrapper) |
 | **Engine** | `sbu-legal-engine` | `http://localhost:8788` | Wrangler (Miniflare) |
-| **Stripe CLI** | `stripe-infrastructure/` | `localhost:8787/webhook` | Binary (Go/Stripe) |
+| **Stripe CLI** | `C:\Tools\Stripe` | `localhost:8787/webhook` | Binary (Global PATH) |
 
 ---
 
@@ -31,8 +31,8 @@ To simulate the Cloudflare serverless environment locally, the system is split i
 Local development utilizes file-based configuration to ensure isolation and prevent accidental use of production keys.
 
 ### 2.1. Environment Files
-- **Landing**: Uses `.env.local` for Next.js environment variables.
-- **Engine**: Uses `.dev.vars` (parsed by Wrangler) for secrets and `wrangler.toml` for public vars.
+- **Landing**: Uses `.env.local` for Next.js environment variables. Requires `NEXT_PUBLIC_ENGINE_ORIGIN` and `NEXT_PUBLIC_GATEWAY_ORIGIN` for local service discovery.
+- **Engine**: Uses `.dev.vars` (parsed by Wrangler) for secrets and `wrangler.toml` for public vars. Requires `ENGINE_ORIGIN`, `GATEWAY_ORIGIN`, and `LANDING_ORIGIN` for CORS validation.
 - **Gateway**: Uses `.dev.vars` (parsed by `server.mjs`) for secrets and `wrangler.toml` for public vars.
 
 ### 2.2. Stripe Immutability
@@ -47,13 +47,11 @@ The system enforces a strict `STRIPE_ENV_MODE="test"` invariant in local develop
 Open four separate terminal instances to start the full environment.
 
 ### Step 1: Stripe Webhook Listener
-The Stripe CLI must be authenticated and configured to forward webhooks to the Gateway.
-```powershell
-# Authenticate (One-time or after 90 days)
-./stripe-infrastructure/stripe.exe login
+The Stripe CLI should be installed in a central location (e.g., `C:\Tools\Stripe`) and added to the system `PATH`.
 
-# Start Listener
-./stripe-infrastructure/stripe.exe listen --forward-to localhost:8787/webhook
+```powershell
+# Start Listener (using global command)
+stripe listen --forward-to localhost:8787/webhook
 ```
 
 ### Step 2: Marketing Landing
@@ -84,4 +82,6 @@ node server.mjs
 1.  **Gateway Entry Point**: All Stripe webhooks **must** target the Gateway (Port 8787). The Gateway performs signature verification before internal propagation.
 2.  **Engine Isolation**: The Engine (Port 8788) should not be accessed directly by the Stripe CLI or the public unless proxied.
 3.  **Key Consistency**: `SESSION_SECRET` must be identical across all `.dev.vars` files to ensure JWT tokens issued by the Gateway are accepted by the Engine.
-4.  **Local Binary**: The `stripe.exe` binary should be maintained in the `stripe-infrastructure/` directory for consistent access without requiring global PATH modifications.
+4.  **Global Binary**: The `stripe.exe` binary is maintained in a central location (e.g., `C:\Tools\Stripe`) to avoid redundant installations across repositories.
+5.  **Origin Injection**: Local development requires explicit injection of `localhost` origins into `.dev.vars` and `.env.local` to override production fallbacks and satisfy CORS policies.
+6.  **Header Limits**: To avoid HTTP 431 errors, the `X-Extracted-Text` header in the Engine upload flow is limited to 8KB. Larger text should be handled via R2 secondary reads.
