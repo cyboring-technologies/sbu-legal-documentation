@@ -3,7 +3,7 @@ id: "README_GATEWAY_V2"
 title: "Gateway V2 — Post-Payment Authority Switch"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-03-18"
+last_updated: "2026-03-19"
 status: "Approved"
 ---
 
@@ -13,7 +13,7 @@ status: "Approved"
 
 *   *Update (2026-03-11): Patched Gateway runtime to enforce strict `SESSION_SECRET` environmental presence; finalized production deployment to `gateway.documentos.legal`.*
 *   *Update (2026-03-18): Implemented strict environment immutability; isolated Gateway Node runtime from `process.env` by explicit `.dev.vars` parsing and enforced single-source-of-truth `env` injections to prevent dynamic overrides.*
-*   *Update (2026-03-19): Hardened local development connectivity. Expanded Gateway `allowed` list to support both `localhost` and `127.0.0.1` origins. Implemented granular `403` error payloads for JWT handshake failures to distinguish between expired tokens and invalid signatures.*
+*   *Update (2026-03-19): Hardened local development connectivity. Expanded Gateway `allowed` list. Successfully deployed Gateway v2.3 to production at `gateway.documentos.legal`. Resolved a critical 500 error in `/checkout/intent` by enforcing `STRIPE_ENV_MODE` and implementing a recursive secret lookup to support both legacy and environment-suffixed Stripe keys.*
 
 STATUS: NORMATIVE
 ROLE: Authority Validation · Irreversibility Guard
