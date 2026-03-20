@@ -3,7 +3,7 @@ id: "README_ENGINE_V2"
 title: "Engine V2 — Sovereign Continuous Engine"
 type: "Core Architecture & Systems"
 version: "v2.0"
-last_updated: "2026-03-18"
+last_updated: "2026-03-19"
 status: "Approved"
 ---
 
@@ -29,6 +29,7 @@ The Engine is mounted once per session, runs inside a single uninterrupted runti
 *   *Update (2026-03-18): Reached final production-ready state. Removed all `[DEBUG]` logs and enforced strict Stripe environment immutability via `stripe-infrastructure/shared/stripeConfig.js`, ensuring isolated, non-overridable, and fail-fast configuration across all local and worker runtimes.*
 *   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on >128KB uploads by removing `formData` parsing. Files now stream directly from the request body to Cloudflare R2. Durable Objects store only the `objectKey` and `extractedText` metadata. All file bytes are explicitly deleted from R2 during incineration paths.*
 *   *Update (2026-03-19): Hardened document ingestion protocol. Implemented UTF-8 Header Compliance via `encodeURIComponent`/`decodeURIComponent` to prevent ISO-8859-1 string errors with special characters. Established a strict **2KB** limit for the `X-Extracted-Text` header to ensure total compatibility with local network stacks and proxy constraints. Resolved a critical `ReferenceError` in `/execute_after_payment` by reordering safety checks after `trustedText` initialization. Implemented UI-based error recovery in `client_ui.js` to prevent infinite "Calculating cost..." states by re-enabling the action button upon Gateway fetch failures.*
+*   *Update (2026-03-19): Successfully deployed Engine v2.3 to production at `engine.documentos.legal`. Verified R2 bucket `sbu-legal-uploads` binding and confirmed successful streaming ingestion protocol rollout.*
 
 There is no concept of “pre-engine” or “post-engine”.
 There is only one Engine, operating under different authority states.

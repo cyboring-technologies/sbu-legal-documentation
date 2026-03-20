@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-03-18"
+last_updated: "2026-03-19"
 status: "Approved"
 ---
 
@@ -30,6 +30,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs. Enforced strict Stripe environment immutability via `stripe-infrastructure/shared/stripeConfig.js` and confirmed `SESSION_SECRET` consistency across runtimes.*
     *   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on large uploads by removing `formData` parsing. Files are now streamed directly to R2; Durable Objects store only session metadata (`objectKey`, `extractedText`). Enforced strict incineration of R2 objects upon session completion or failure.*
     *   *Update (2026-03-19): Hardened document ingestion protocol. Resolved HTTP 431 and ISO-8859-1 encoding errors by implementing UTF-8 Header Compliance and limiting `X-Extracted-Text` header to 2KB. Fixed a critical `ReferenceError` in `/execute_after_payment`. Implemented UI-based error recovery in `client_ui.js` to prevent infinite "Calculating cost..." states upon Gateway fetch failures. Centralized Stripe CLI and fixed cross-origin (CORS) failures by injecting deterministic local origins into `.dev.vars`.*
+    *   *Update (2026-03-19): Successfully rolled out Engine v2.3 to production. Verified zero-persistence R2-backed binary ingestion pipeline at `engine.documentos.legal`.*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.
