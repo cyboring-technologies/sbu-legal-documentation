@@ -13,6 +13,7 @@ status: "Approved"
 
 > [!NOTE]
 > **Audit Status (2026-03-18):** Confirmed `SESSION_SECRET` consistency across all .dev.vars. Verified `STRIPE_ENV_MODE` fail-fast behavior; removal of legacy fallback code ensures that incorrect configurations block execution immediately. For detailed instructions on local initialization, see [LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md](file:///c:/Cyboring_Global/5_Ventures/sbu-legal/Documentation/1_Core_Architecture_and_Systems/LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md).
+> **Update (2026-03-19):** Hardened local development origins for Gateway and Engine. Confirmed `GEMINI_API_KEY` presence in local `.dev.vars` for fallback engine execution. Verified that commenting out production Stripe keys in `wrangler.toml` resolves local `STRIPE_IMMUTABILITY_FAULT` when using test keys.
 
 ---
 
