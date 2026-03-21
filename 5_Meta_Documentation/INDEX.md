@@ -91,6 +91,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     Specifies the visual identity and UI standards for the landing page. It details the "Institutional Greyscale" color palette, typography (Inter/IBM Plex Sans), and component specifications (CTAs, Hero, Grid Patterns).
     *   *Update (2026-03-07): Inserted structural authority microcopy inside the homepage viewport, securing semantic context density.*
     *   *Update (2026-03-08): Localized the Authority Signal ("Motor de Tecnología Legal" / "Legal Technology Engine") to ensure bilingual coherence and SEO relevance across regions.*
+    *   *Update (2026-03-21): Hardened and documented the `ctaType` architecture (v1.1). Corrected technical debt where `cta-2` was incorrectly used for navigational links instead of its intended role as a Security Modal trigger (now strictly enforced as a button element).*
 
 *   **ENGINE_VISUAL_CONTRACT.md**
     Strictly governs how the Engine is rendered. It mandates full viewport sovereignty (no headers/footers) and prohibits enclosing the Engine in modals or containers, ensuring it feels like a distinct runtime.

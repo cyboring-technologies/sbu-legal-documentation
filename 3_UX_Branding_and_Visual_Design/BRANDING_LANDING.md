@@ -188,32 +188,39 @@ Two primary button components manage call-to-action hierarchies, located in `src
 - Supports `onClick` handlers and `Link` navigation
 - External link support (`target`, `rel`)
 
-**Variants:**
+#### CTA Type Architecture (v1.1)
+The `ctaType` prop (Types `cta-1` | `cta-2` | `cta-3` | `cta-4`) strictly governs the component's underlying behavior and routing logic, independently of its visual `variant`.
 
-| Variant | Visual Style | Use Case |
-| :--- | :--- | :--- |
-| `primary` | Solid **Primary** background (`#2F4A5C`), white text. Shadow-lg → Shadow-xl on hover. `hover:scale-95` shrink effect. | Main CTAs, conversions, primary actions. |
-| `secondary` | Transparent background, 2px **Border** outline. Hover fills with **Secondary** color. | Alternative actions, less emphasis. |
+| CTA Type | Behavior | Link Type | Special Logic |
+| :--- | :--- | :--- | :--- |
+| `cta-1` | **Engine Entry** | External Anchor | Dynamically builds the Engine URL based on current locale and theme. Always opens in `_blank`. |
+| `cta-2` | **Security Modal** | Button | **Hardcoded Trigger:** Intercepts clicks to open the `SecurityModal`. Prevents default navigation even if `href` is provided. |
+| `cta-3` | **Standard Link** | `Link` / Anchor | Default navigational link. Uses provided `href`. Supports internal `next-intl` routing or external URLs. |
+| `cta-4` | **Alt Link** | `Link` / Anchor | Similar to `cta-3`, used for administrative or secondary institutional links (e.g., Billing/Enterprise). |
 
-**Sizes:**
+**CRITICAL:** Never use `cta-2` for a button that is intended to navigate to a page (like `/blog` or WhatsApp). Use `cta-3` or `cta-4` for all navigational links.
 
-| Size | Classes | Usage |
-| :--- | :--- | :--- |
-| `sm` | `px-4 py-2 text-sm` | Compact spaces, inline actions. |
-| `md` | `px-6 py-3 text-base` | Default, most common. |
-| `lg` | `px-8 py-4 text-lg` | Hero sections, primary conversions. |
-
-**Example:**
+**Example (Navigational Link):**
 ```tsx
 <CTAButton
-  href="/contact"
-  variant="primary"
-  size="lg"
-  icon={true}
-  target="_blank"
-  rel="noopener noreferrer"
+  href="/blog"
+  variant="secondary"
+  size="md"
+  ctaType="cta-3"
 >
-  Get Started
+  Visitar Blog
+</CTAButton>
+```
+
+**Example (Security Modal Trigger):**
+```tsx
+<CTAButton
+  href="#"
+  variant="secondary"
+  size="md"
+  ctaType="cta-2"
+>
+  Ver protocolos de seguridad
 </CTAButton>
 ```
 
