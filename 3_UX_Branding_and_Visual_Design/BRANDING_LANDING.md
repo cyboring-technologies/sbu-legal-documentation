@@ -195,8 +195,8 @@ The `ctaType` prop (Types `cta-1` | `cta-2` | `cta-3` | `cta-4`) strictly govern
 | :--- | :--- | :--- | :--- |
 | `cta-1` | **Engine Entry** | External Anchor | Dynamically builds the Engine URL based on current locale and theme. Always opens in `_blank`. |
 | `cta-2` | **Security Modal** | Button | **Hardcoded Trigger:** Intercepts clicks to open the `SecurityModal`. Prevents default navigation even if `href` is provided. |
-| `cta-3` | **Standard Link** | `Link` / Anchor | Default navigational link. Uses provided `href`. Supports internal `next-intl` routing or external URLs. |
-| `cta-4` | **Alt Link** | `Link` / Anchor | Similar to `cta-3`, used for administrative or secondary institutional links (e.g., Billing/Enterprise). |
+| `cta-3` | **Standard Link** | `Link` / Anchor | Default navigational link. Uses provided `href`. Supports internal `next-intl` routing. **Auto-detects** `mailto:` and `tel:` to use standard `<a>` tags. |
+| `cta-4` | **Alt Link** | `Link` / Anchor | Similar to `cta-3`, used for secondary links. **Auto-detects** `mailto:` and `tel:` to use standard `<a>` tags. |
 
 **CRITICAL:** Never use `cta-2` for a button that is intended to navigate to a page (like `/blog` or WhatsApp). Use `cta-3` or `cta-4` for all navigational links.
 
