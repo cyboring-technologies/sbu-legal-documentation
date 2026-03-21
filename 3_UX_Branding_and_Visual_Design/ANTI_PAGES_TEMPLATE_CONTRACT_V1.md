@@ -185,7 +185,7 @@ Search Engine Optimization metrics follow a rigid, reproducible formula to ensur
 * **Title Tag Pattern**: `[Service] en [Jurisdiction] — Escrito legal listo para presentar | documentos.legal`
 * **Meta Description Pattern**: `Genere su documento legal para [servicio] en [jurisdicción]. Listo para presentar en minutos. Sin cuentas. Sin almacenamiento.`
 * **Structured Data Rule**: Each AntiPage must inject a parametric `Service` JSON-LD schema (mapping `provider`, `brand`, `areaServed`, `url`) and a `BreadcrumbList` schema reflecting the canonical path.
-* **Canonical Rule**: Base canonical mapped purely to the route matrix.
+* **Canonical Rule**: Base canonical must be localized (including `/en` or `/es`) to match the exported file structure. Root-level canonicals are prohibited for static targets to prevent sitemap/deployment mismatches.
 * **Manifest Injection Rule**: To eradicate indexation latency, a flat programmatic index of canonical URLs must be regenerated at `seo/indexation_manifest.json` enabling Search Console API bulk submissions.
 * **Prohibitions**: No keyword stuffing, no mandatory blog interlinking, no sidebar.
 

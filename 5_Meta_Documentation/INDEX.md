@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-03-19"
+last_updated: "2026-03-21"
 status: "Approved"
 ---
 
@@ -43,6 +43,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-07): Added `/sitemap` HTML utility page (static, lists all pages + 24 AntiPages) and `generate-rss.mjs` post-build script producing `out/rss.xml` (4 blog items, RSS 2.0 + Atom self-link). Added `postbuild` npm hook to `package.json`. Corrected HTML sitemap `robots` directive from `noindex` to default `index, follow`. All changes are within the Landing SEO scope and do not affect Engine, Gateway, or execution contracts.*
     *   *Update (2026-03-10): Documented the `wrangler secret put` commands for production secrets: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `SESSION_SECRET`.*
     *   *Update (2026-03-19): Synchronized environment variable naming. Added `NEXT_PUBLIC_ENGINE_ORIGIN` to `.env.local` to resolve hardcoded production fallbacks.*
+    *   *Update (2026-03-21): Resolved critical sitemap 404 errors in production by localizing all sitemap and canonical URLs. Ensured `sitemap.ts` and `generateMetadata` include the mandatory locale prefix (`/es/` or `/en/`) to match the Static Export directory structure.*
 
 *   **METADATA_EXTRACTION_ARCHITECTURE_V2.md** *(Deprecated — 2026-02-25)*
     Archived. Described the regex-based structural extraction pipeline (`Stage3Extractor.js`, `/extract`, `/review_metadata`, SHA-256 freeze, `<TRUSTED_CONTEXT>` injection). Fully removed during the Sovereign LLM migration (2026-02-25). The LLM is now the sole interpreter of source content. Retained for historical reference only.
@@ -112,6 +113,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-07): Validated indexing manifest injection and the systematic application of a deterministic internal crawl graph (4 dynamic links sorted by slug to ensure hydration compatibility) appended as the penultimate structural block.*
     *   *Update (2026-03-07): Added global Legal Layout Footer to `AntiPage.tsx` as a layout element rendered **after** the CTA block — outside the block template. Contains static links to `/legal/terms` (Términos de Servicio) and `/legal/privacy` (Política de Privacidad), plus "Cyboring Technologies LLC" attribution. Documented in Section 3 and Section 6 of this contract. Block order, CTA invariant, and `antipages.json` remain unmodified.*
     *   *Update (2026-03-07): Fixed critical static export errors by correcting `generateStaticParams` to include all 24 Tier-A slugs for both locales. Standardized internal navigation using localized `Link` components to prevent broken routing in the exported static site. Fixed AntiPage CTA logic to ensure proper routing and theme/language handover to the engine.*
+    *   *Update (2026-03-21): Hardened AntiPage SEO and schema consistency. Universalized the inclusion of locale prefixes in canonical URLs and JSON-LD structured data (Service, Breadcrumb, FAQ), eliminating metadata mismatches between language variants.*
 
 ## 4. Business Strategy, Marketing & Economics
 *Documents defining the rules out in the market, launch numbers, and business propositions.*
