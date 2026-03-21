@@ -9,6 +9,8 @@ status: "Approved"
 
 # Landing Page Architecture
 
+Legal document automation platform: https://documentos.legal
+
 **Context:** *Describes the Landing Page as a static marketing surface that informs users and links to the Engine. It explicitly states the landing page has no authority over execution, user state, or payments.*
 
 **STATUS**: DESCRIPTIVE · NON-AUTHORITATIVE · SUBORDINATE
