@@ -136,6 +136,9 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
 *   **MARKETING_EXECUTION_FRAMEWORK_V1.md**
     Defines the operational unit economics, KPI framework, and test matrix required for commercial validation under the SBU-Legal constraint.
 
+*   **GSC_INDEXATION_PLAYBOOK_V1.md**
+    Defines the recurring operational protocol to accelerate indexation of AntiPages after deployment via GSC and backlink triggers.
+
 *   **ANTI_PAGES_MASTER_INVENTORY_V1.md**
     Structural document that maps the complete annual inventory of parametric landing pages (AntiPages). Establishes service-jurisdiction variants, tier prioritization, and serves as the source for `antipages.json`.
 
