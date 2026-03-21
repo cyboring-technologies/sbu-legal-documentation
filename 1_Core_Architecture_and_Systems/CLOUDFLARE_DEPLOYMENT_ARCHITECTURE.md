@@ -3,7 +3,7 @@ id: "CLOUDFLARE_DEPLOYMENT_ARCHITECTURE"
 title: "Cloudflare Deployment Architecture"
 type: "Core Architecture and Systems"
 version: "v1.0"
-last_updated: "2026-03-10"
+last_updated: "2026-03-21"
 status: "Approved"
 ---
 
@@ -269,28 +269,27 @@ Reference architecture:
 See `README_GATEWAY_V2.md`.
 
 *Update (2026-03-10): Infrastructure finalized with `wrangler.toml` and verified through production deployment to `gateway.documentos.legal`. Confirmed environmental bindings for `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`.*
-*Update (2026-03-11): Confirmed DNS routing requires manual `CNAME` pointing to `<account-subdomain>.workers.dev` via Cloudflare Dashboard to resolve. Wrangler `routes` is used for pattern matching internal to Cloudflare but does not auto-provision DNS for Gateway.*
+*Update (2026-03-21): Migrated both Engine and Gateway to **Custom Domains** (`custom_domain = true` in `wrangler.toml`). This resolved intermittent "Site Not Secure" (TLS) and "Site Does Not Exist" (DNS 1001) errors during cold starts by enforcing at-the-edge TLS persistence and automatic DNS record provisioning (AAAA records pointing to `100::`). Manual `CNAME` records are no longer required and must be deleted from the dashboard to prevent collisions.*
+
 
 ---
 
-# 9. Worker Routes
+# 9. Worker Custom Domains
 
-Workers are attached using Cloudflare routes.
+Workers are attached using the Cloudflare **Custom Domains** feature.
 
-**CRITICAL NOTE FOR GATEWAY:** The Gateway requires a manual `CNAME` record in the Cloudflare Dashboard pointing `gateway` to the `sbu-legal-gateway.<account-subdomain>.workers.dev` target with Proxy (Orange Cloud) enabled to resolve globally.
+**CRITICAL NOTE:** Cloudflare now auto-provisions and manages the DNS records for `engine` and `gateway`. Any manual `CNAME` or `A` records must be removed from the DNS dashboard.
 
-Example:
+Example configuration in `wrangler.toml`:
 
+```toml
+routes = [
+  { pattern = "engine.documentos.legal", custom_domain = true }
+]
 ```
-engine.documentos.legal/*
-→ Engine Worker
-```
 
-```
-→ Gateway Worker
+*Update (2026-03-21): Verified stable TLS Handshake and instant resolution across all edge nodes after deployment. Zero-manual-DNS configuration is now the enforced standard for the project.*
 
-*Update (2026-03-10): All worker routes confirmed active. Engine Worker correctly responds at `engine.documentos.legal/*` after successful production push.*
-```
 
 Workers operate entirely at the edge.
 
