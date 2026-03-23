@@ -58,6 +58,11 @@ No traditional server infrastructure exists.
 
 # 3. Domain Topology
 
+### Apex Domain Hygiene & Legacy Records
+
+**CRITICAL NOTE:** The apex domain (`documentos.legal`) must maintain strictly clean DNS records to ensure instant edge resolution.
+*Update (2026-03-22): Identified and removed legacy `NS` records (pointing to `dns-parking.com`) imported during initial Cloudflare setup. The presence of non-authoritative root `NS` records in the dashboard causes DNS delegation loops, resulting in 1-2 second `ERR_TIMED_OUT` delays before fallback. The enforced standard is Zero-Manual-DNS configuration for the apex.*
+
 Primary domain:
 
 ```

@@ -67,6 +67,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-11): Documented manual `CNAME` to `workers.dev` requirement for Gateway DNS routing, replacing assumed auto-provisioning.*
     *   *Update (2026-03-18): Clarified Section 13 Deployment Workflow to explicitly state that Cloudflare Workers are deployed strictly via manual local `wrangler deploy` execution, while the Landing page utilizes native Cloudflare Pages Git integration. No GitHub Actions CI/CD pipelines are utilized.*
     *   *Update (2026-03-21): Implemented **Custom Domains** infrastructure fix. Migrated Engine and Gateway from legacy `routes` mapping to `custom_domain = true`, resolving intermittent TLS handshake failures and DNS 1001 errors during cold starts. Eliminated manual DNS CNAME requirements.*
+    *   *Update (2026-03-22): Added critical apex domain hygiene notes, detailing the removal of legacy `dns-parking.com` NS records that caused `ERR_TIMED_OUT` delays during apex resolution prior to Cloudflare Edge fallback.*
 
 *   **LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md**
     Operational guide for initializing and running the SBU-Legal services locally. It defines the component directory structure, port mappings (3000/8787/8788), startup procedures, and Stripe CLI authentication workflow for developers using the global binary.
