@@ -3,7 +3,7 @@ id: "INDEX"
 title: "Documentation Index for SBU-Legal"
 type: "Meta Documentation"
 version: "v1.0"
-last_updated: "2026-03-21"
+last_updated: "2026-03-23"
 status: "Approved"
 ---
 
@@ -44,6 +44,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-10): Documented the `wrangler secret put` commands for production secrets: `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, `SESSION_SECRET`.*
     *   *Update (2026-03-19): Synchronized environment variable naming. Added `NEXT_PUBLIC_ENGINE_ORIGIN` to `.env.local` to resolve hardcoded production fallbacks.*
     *   *Update (2026-03-21): Resolved critical sitemap 404 errors in production by localizing all sitemap and canonical URLs. Ensured `sitemap.ts` and `generateMetadata` include the mandatory locale prefix (`/es/` or `/en/`) to match the Static Export directory structure.*
+    *   *Update (2026-03-23): Eliminated a 2-second initialization delay at the root domain (`/`) by replacing the client-side Next.js locale router with an instant Cloudflare Pages Edge Redirect (`public/_redirects`).*
 
 *   **METADATA_EXTRACTION_ARCHITECTURE_V2.md** *(Deprecated — 2026-02-25)*
     Archived. Described the regex-based structural extraction pipeline (`Stage3Extractor.js`, `/extract`, `/review_metadata`, SHA-256 freeze, `<TRUSTED_CONTEXT>` injection). Fully removed during the Sovereign LLM migration (2026-02-25). The LLM is now the sole interpreter of source content. Retained for historical reference only.
@@ -68,6 +69,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-18): Clarified Section 13 Deployment Workflow to explicitly state that Cloudflare Workers are deployed strictly via manual local `wrangler deploy` execution, while the Landing page utilizes native Cloudflare Pages Git integration. No GitHub Actions CI/CD pipelines are utilized.*
     *   *Update (2026-03-21): Implemented **Custom Domains** infrastructure fix. Migrated Engine and Gateway from legacy `routes` mapping to `custom_domain = true`, resolving intermittent TLS handshake failures and DNS 1001 errors during cold starts. Eliminated manual DNS CNAME requirements.*
     *   *Update (2026-03-22): Added critical apex domain hygiene notes, detailing the removal of legacy `dns-parking.com` NS records that caused `ERR_TIMED_OUT` delays during apex resolution prior to Cloudflare Edge fallback.*
+    *   *Update (2026-03-23): Documented the architectural distinction between Workers (`custom_domain = true` Auto-DNS) and Pages (strict manual `CNAME` requirement). Documented the migration to Edge-level `_redirects` to eliminate client-side JS locale routing delays.*
 
 *   **LOCAL_DEVELOPMENT_ENVIRONMENT_V1.md**
     Operational guide for initializing and running the SBU-Legal services locally. It defines the component directory structure, port mappings (3000/8787/8788), startup procedures, and Stripe CLI authentication workflow for developers using the global binary.

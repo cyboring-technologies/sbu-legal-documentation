@@ -3,7 +3,7 @@ id: "CLOUDFLARE_DEPLOYMENT_ARCHITECTURE"
 title: "Cloudflare Deployment Architecture"
 type: "Core Architecture and Systems"
 version: "v1.0"
-last_updated: "2026-03-21"
+last_updated: "2026-03-23"
 status: "Approved"
 ---
 
@@ -60,8 +60,9 @@ No traditional server infrastructure exists.
 
 ### Apex Domain Hygiene & Legacy Records
 
-**CRITICAL NOTE:** The apex domain (`documentos.legal`) must maintain strictly clean DNS records to ensure instant edge resolution.
-*Update (2026-03-22): Identified and removed legacy `NS` records (pointing to `dns-parking.com`) imported during initial Cloudflare setup. The presence of non-authoritative root `NS` records in the dashboard causes DNS delegation loops, resulting in 1-2 second `ERR_TIMED_OUT` delays before fallback. The enforced standard is Zero-Manual-DNS configuration for the apex.*
+**CRITICAL NOTE:** The apex domain (`documentos.legal`) must maintain strictly clean DNS records to ensure instant edge resolution, **but requires an explicit `CNAME` for the Landing page.**
+*Update (2026-03-22): Identified and removed legacy `NS` records (pointing to `dns-parking.com`) imported during initial Cloudflare setup. The presence of non-authoritative root `NS` records in the dashboard causes DNS delegation loops, resulting in 1-2 second `ERR_TIMED_OUT` delays before fallback.*
+*Update (2026-03-23): Clarified that while Workers utilize auto-provisioned Zero-Manual-DNS (via `custom_domain = true`), Cloudflare **Pages** fundamentally requires a manual `CNAME` pointing to the `.pages.dev` alias for apex domain routing. Deleting this record will result in a hard `DNS_PROBE_FINISHED_NXDOMAIN` outage.*
 
 Primary domain:
 
@@ -160,6 +161,8 @@ Framework: Next.js (static export)
 Build command: npm run build
 Output directory: out
 ```
+
+*Update (2026-03-23): Implemented native Cloudflare Pages Edge Redirects via `public/_redirects`. This eliminated a 2-second client-side JS initialization delay at the root path (`/`). By handling the locale redirect (`/ -> /es/`) via a `302` response instantaneously at the CDN edge, it completely bypasses the need for the browser to download React, execute, and read `localStorage` / `navigator.language`.*
 
 Landing responsibilities:
 
