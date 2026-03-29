@@ -30,6 +30,7 @@ This directory contains the Single Source of Truth (SSoT) documentation and othe
     *   *Update (2026-03-18): Finalized production-ready state by removing all `[DEBUG]` logs. Enforced strict Stripe environment immutability via `stripe-infrastructure/shared/stripeConfig.js` and confirmed `SESSION_SECRET` consistency across runtimes.*
     *   *Update (2026-03-18): Implemented R2 Streaming Ingestion (v2.3). Resolved 500 errors on large uploads by removing `formData` parsing. Files are now streamed directly to R2; Durable Objects store only session metadata (`objectKey`, `extractedText`). Enforced strict incineration of R2 objects upon session completion or failure.*
     *   *Update (2026-03-19): Hardened document ingestion protocol. Resolved HTTP 431 and ISO-8859-1 encoding errors. Fixed a critical `ReferenceError` in `/execute_after_payment`. Successfully rolled out Engine v2.3 and Gateway v2.3 to production. Resolved a 500 initialization error by enforcing `STRIPE_ENV_MODE` and relaxing the strict `_LIVE` suffix requirement for legacy secrets in `stripeConfig.js`.*
+    *   *Update (2026-03-29): Resolved a critical ReferenceError in the `/refine` endpoint and fixed visual/redirection failures caused by local port conflicts for `LANDING_ORIGIN` (3000).*
 
 *   **README_GATEWAY_V2.md**
     Defines the Gateway's role as a stateless authority switch. It clarifies that the Gateway never hosts UI or starts sessions; it only validates payment and issues the authority token for the already-running Engine.

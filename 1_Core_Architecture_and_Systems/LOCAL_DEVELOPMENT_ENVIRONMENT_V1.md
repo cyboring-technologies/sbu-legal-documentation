@@ -85,3 +85,4 @@ node server.mjs
 4.  **Global Binary**: The `stripe.exe` binary is maintained in a central location (e.g., `C:\Tools\Stripe`) to avoid redundant installations across repositories.
 5.  **Origin Injection**: Local development requires explicit injection of `localhost` origins into `.dev.vars` and `.env.local` to override production fallbacks and satisfy CORS policies.
 6.  **Header Limits**: To avoid HTTP 431 errors, the `X-Extracted-Text` header in the Engine upload flow is limited to 8KB. Larger text should be handled via R2 secondary reads.
+7.  **Port Sovereignty**: Local development assumes `localhost:3000` is exclusively for the Landing service. Conflicts with other projects (e.g., Docker-based admission apps) will break logo rendering and post-incineration redirects. Always ensure port 3000 is free before starting `npm run dev` in `sbu-legal-landing`.
