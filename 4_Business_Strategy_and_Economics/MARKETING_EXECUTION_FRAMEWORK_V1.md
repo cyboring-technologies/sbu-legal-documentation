@@ -236,3 +236,22 @@ status: "Approved"
 * If Paid Channel CPA >= $15.00 → Pause specific traffic pipeline.
 * If individual CPC > $2.00 → Pause keyword term entirely.
 * If cumulative spend hits $500 with zero Uploads → Pause experiments.
+
+---
+
+## PARAMETRIC MODEL INTEGRATION
+
+All KPIs, experiments, and decisions defined in this framework MUST be derived from the Marketing Parametric Model.
+
+Mandatory mapping:
+
+TRAFFIC → CR → SALES → REVENUE → NET_CASH → MRR
+
+Rules:
+
+* No KPI may exist without traceability to the parametric model
+* All experiments must define which variables are being modified
+* All results must be measurable through the canonical equations
+* Scenario evaluation must follow the Simulation Protocol defined in MARKETING_PARAMETRIC_MODEL.md
+
+This enforces a single financial truth across execution and strategy.

@@ -207,3 +207,86 @@ The impact on the time inflection point before structural survival is met.
 ------------------------------------------------------------------------
 
 END OF DOCUMENT
+
+---
+
+## BASE STATE (MANDATORY FOR SIMULATION)
+
+All scenario calculations must start from a defined baseline state.
+
+If the user does not provide a full state, assume the following default baseline:
+
+PAGES_INITIAL = 30
+PAGES_PER_MONTH = 10
+TRAFFIC_PER_PAGE_BASE = 30
+INDEXATION_FACTOR = 0.6
+BACKLINKS_PER_MONTH = 0
+JURISDICTIONS_ACTIVE = 1
+SERVICES_ACTIVE = 10
+
+SEO_MONTHLY_COST = 50
+FOUNDER_TIME_COST = 0
+BACKLINK_COST = 100
+
+SEGMENT_WEIGHT_B2B = 0.5
+SEGMENT_WEIGHT_B2C = 0.5
+B2B_TICKET_MULTIPLIER = 1.2
+B2C_TICKET_MULTIPLIER = 0.8
+B2B_CR_ADJUSTMENT = 1.0
+B2C_CR_ADJUSTMENT = 1.0
+
+AVG_TICKET = 25
+PRICE_TEST_ACTIVE = 1.0
+EXECUTION_VARIABLE_COST = 1.0
+
+ADS_MONTHLY_BUDGET = 100
+CPC_ESTIMATED = 1.0
+STOP_LOSS = 500
+
+BASE_CR = 0.02
+POST_CRO_CR = 0.035
+CRO_START_MONTH = 2
+
+CITY_EXPANSION_MONTH = 6
+NEW_CITY_TRAFFIC_MULTIPLIER = 0.7
+
+---
+
+## SIMULATION PROTOCOL
+
+To answer any financial or scenario-based question, the system MUST:
+
+1. Start from BASE_STATE or user-provided state
+2. Apply a SCENARIO_DELTA (explicit variable changes)
+3. Recompute ALL canonical formulas defined in this document
+4. Execute calculations across the defined time horizon (Month 0 → Month 9)
+5. Return structured numerical outputs (no narrative-only answers)
+
+All outputs must be derived strictly from the canonical equations.
+
+---
+
+## SCENARIO DELTA RULES
+
+When a user modifies variables, apply the following deterministic rules:
+
+* AVG_TICKET change → directly impacts REVENUE linearly
+* Price increase → default CR penalty: -10% per +50% price (unless overridden)
+* ADS disabled → PAID_TRAFFIC = 0
+* STOP_LOSS reached → PAID_TRAFFIC = 0 for subsequent months
+* Forced zero sales (specific month) → SALES = 0, REVENUE = 0, costs remain active
+* INDEXATION_FACTOR < 0.5 → assume delayed traffic ramp
+
+All scenario changes must be treated as explicit variable overrides.
+
+---
+
+## OUTPUT CONTRACT (MANDATORY)
+
+ALL scenario responses MUST return:
+
+MONTH | TOTAL_TRAFFIC | SALES | REVENUE | VARIABLE_COST | MARKETING_COST | NET_CASH | MRR
+
+* Values must be numeric
+* Results must be computed per month
+* No descriptive-only answers allowed
