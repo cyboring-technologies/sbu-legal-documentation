@@ -68,7 +68,9 @@ Esta preservación no implica disponibilidad pública, soporte, continuidad ni r
 Completada el 2026-06-14:
 
 - Export archivado publicado en Cloudflare Pages, proyecto `sbu-legal-landing`.
-- Deployment Pages de ejecución: `4c6a12e9-2fa6-47d2-b4b7-2e577f97c9b6`.
+- Deployment Pages inicial de ejecución: `4c6a12e9-2fa6-47d2-b4b7-2e577f97c9b6`.
+- Deployment Pages final activo desde Git: `d8246fd9-8640-4f25-b862-3ea137ed1685`,
+  fuente `266eac0`.
 - `engine.documentos.legal` restringido con respuesta `410 Gone`, `no-store` y `noindex`.
 - Versión archivada del Worker engine: `3c00d344-75df-41c2-86ab-a1e06a3efdc5`.
 - `gateway.documentos.legal` restringido con respuesta `410 Gone`, bloqueando cotizaciones,
